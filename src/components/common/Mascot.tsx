@@ -292,288 +292,45 @@ export const Mascot: React.FC<MascotProps> = ({
 
       case 'pony':
         return (
-          <svg viewBox="0 0 120 120" className="w-full h-full drop-shadow-md" fill="none">
-            {/* Twilight Horn Magic Glow Aura */}
-            <g className={state === 'celebrating' ? 'animate-pulse' : ''}>
-              <circle cx="89" cy="7" r="5" fill="#F472B6" fillOpacity="0.35" />
-              <circle cx="89" cy="7" r="2.2" fill="#FFFFFF" />
-              <path d="M89 1 L89 13 M83 7 L95 7" stroke="#EC4899" strokeWidth="1.5" strokeLinecap="round" />
-              <path d="M85 3 L93 11 M85 11 L93 3" stroke="#F472B6" strokeWidth="1.2" strokeLinecap="round" />
-              {state === 'celebrating' && (
-                <>
-                  <circle cx="78" cy="4" r="1.5" fill="#EC4899" />
-                  <circle cx="98" cy="14" r="1.5" fill="#A855F7" />
-                  <path d="M74 14 L76 16 M74 16 L76 14" stroke="#EC4899" strokeWidth="1" />
-                </>
-              )}
-            </g>
-
-            {/* 1. TAIL (Behind Rump) - Sweeping tail with blunt cut and magenta & violet twin stripes */}
-            <g>
-              {/* Base Dark Indigo Tail */}
-              <path
-                d="M34 56 C18 46 7 60 7 76 C7 92 11 102 17 108 L29 102 C22 94 18 84 19 74 C20 63 26 57 34 56 Z"
-                fill="#1E1B4B"
-              />
-              {/* Magenta Stripe */}
-              <path
-                d="M31 56 C19 50 11 61 11 76 C11 90 14 98 19 105 L24 103 C19 96 16 85 17 74 C18 64 24 59 31 56 Z"
-                fill="#EC4899"
-              />
-              {/* Violet Stripe */}
-              <path
-                d="M28 56 C19 53 14 63 14 76 C14 88 16 95 20 103 L23 102 C19 94 17 84 18 74 C19 66 24 60 28 56 Z"
-                fill="#8B5CF6"
-              />
-            </g>
-
-            {/* 2. FAR LIMBS (Back hind & front legs, shaded lavender #C084FC) */}
-            {/* Far Hind Leg */}
-            <path
-              d="M47 66 C44 76 43 86 42 96 L41 106 L51 106 L52 96 C53 86 55 76 56 68 Z"
-              fill="#C084FC"
-              stroke="#7E22CE"
-              strokeWidth="1.8"
-              strokeLinejoin="round"
+          <div className="relative w-full h-full flex items-center justify-center">
+            <img
+              src="/assets/mascots/fluttershy.png"
+              alt="小马宝莉 · 小蝶/柔柔 (Fluttershy)"
+              className="w-full h-full object-contain drop-shadow-md select-none pointer-events-none transform transition-transform hover:scale-105"
             />
-            {/* Far Front Leg */}
-            <path
-              d="M68 66 L64 84 L63 94 L62 106 L72 106 L74 94 L75 82 L78 68 Z"
-              fill="#C084FC"
-              stroke="#7E22CE"
-              strokeWidth="1.8"
-              strokeLinejoin="round"
-            />
-
-            {/* 3. BACK MANE (Hugging back of neck down to withers, straight blunt cut) */}
-            <g>
-              <path d="M72 26 C66 34 60 48 54 64 L66 64 C70 52 74 38 78 30 Z" fill="#1E1B4B" />
-              <path d="M70 30 C64 38 59 50 56 62 L60 62 C63 51 67 40 74 34 Z" fill="#EC4899" />
-              <path d="M68 34 C63 42 59 52 57 62 L59 62 C61 52 65 42 71 37 Z" fill="#8B5CF6" />
-            </g>
-
-            {/* 4. FAR EAR */}
-            <path d="M73 22 C70 12 76 9 79 18 Z" fill="#C084FC" stroke="#7E22CE" strokeWidth="1.8" />
-            <path d="M74 19 C72 14 76 12 78 17 Z" fill="#F472B6" />
-
-            {/* 5. SEAMLESS BODY (Torso, Chest, Front Leg, Belly, Flank & Hind Leg) */}
-            <path
-              d="M78 58 C82 62 84 72 84 86 L85 106 L73 106 L73 94 C73 84 70 80 64 80 C56 80 50 82 46 86 L44 94 L42 106 L30 106 L30 94 C29 84 27 76 32 66 C36 58 44 56 54 56 C64 56 72 54 78 58 Z"
-              fill="#D8B4FE"
-              stroke="#7E22CE"
-              strokeWidth="2.2"
-              strokeLinejoin="round"
-            />
-
-            {/* 6. PRINCESS WINGS (Folded Alicorn Wing) */}
-            <g transform="translate(52, 54)">
-              <path
-                d="M2 4 C6 -2 16 -1 18 5 C18 10 13 15 9 17 C5 18 2 15 2 12 C0 10 0 5 2 4 Z"
-                fill="#E9D5FF"
-                stroke="#7E22CE"
-                strokeWidth="1.8"
-              />
-              <path d="M6 7 C10 5 14 6 15 9 C13 13 9 15 7 14" stroke="#9333EA" strokeWidth="1.2" fill="none" />
-            </g>
-
-            {/* 7. CUTIE MARK ON FLANK (6-pointed Magenta Star + 5 White Sparkle Stars) */}
-            <g transform="translate(38, 68)">
-              {/* Main 6-pointed Star */}
-              <path
-                d="M0 -7 L1.8 -2.2 L6.5 -3.2 L3.2 0.8 L6.2 4.8 L1.5 3.2 L0 7.5 L-1.5 3.2 L-6.2 4.8 L-3.2 0.8 L-6.5 -3.2 L-1.8 -2.2 Z"
-                fill="#DB2777"
-              />
-              <circle cx="0" cy="0.5" r="1.3" fill="#FFFFFF" />
-              {/* 5 Sparkle Stars */}
-              <circle cx="5" cy="-5" r="1" fill="#FFFFFF" />
-              <circle cx="-5" cy="-5" r="1" fill="#FFFFFF" />
-              <circle cx="-5" cy="5" r="1" fill="#FFFFFF" />
-              <circle cx="5" cy="5" r="1" fill="#FFFFFF" />
-              <circle cx="0" cy="-8.5" r="1" fill="#FFFFFF" />
-            </g>
-
-            {/* 8. HEAD & SNOUT (Big Hasbro Chibi Head) */}
-            <path
-              d="M70 48 C70 36 74 26 82 22 C92 18 104 22 110 30 C115 36 116 44 112 49 C108 54 100 55 95 54 C90 54 85 58 80 62 C74 58 72 54 70 48 Z"
-              fill="#D8B4FE"
-              stroke="#7E22CE"
-              strokeWidth="2.2"
-              strokeLinejoin="round"
-            />
-
-            {/* 9. NEAR EAR */}
-            <path d="M80 22 C78 11 86 8 89 18 Z" fill="#D8B4FE" stroke="#7E22CE" strokeWidth="2" />
-            <path d="M81 19 C80 13 85 11 87 17 Z" fill="#F472B6" />
-
-            {/* 10. UNICORN HORN */}
-            <polygon points="89,7 83,23 91,20" fill="#D8B4FE" stroke="#7E22CE" strokeWidth="1.8" strokeLinejoin="round" />
-            <line x1="84.5" y1="19" x2="90" y2="17.5" stroke="#9333EA" strokeWidth="1.4" strokeLinecap="round" />
-            <line x1="86" y1="14" x2="90.5" y2="13" stroke="#9333EA" strokeWidth="1.4" strokeLinecap="round" />
-            <line x1="87.5" y1="10" x2="90.5" y2="9.5" stroke="#9333EA" strokeWidth="1.4" strokeLinecap="round" />
-
-            {/* 11. STRAIGHT-CUT BANGS (齐刘海) WITH TWIN STRIPES */}
-            {/* Base Indigo Bangs */}
-            <path d="M76 18 C84 15 96 17 102 22 C105 26 104 36 96 38 L94 42 L84 42 C83 36 82 28 76 18 Z" fill="#1E1B4B" />
-            {/* Magenta Stripe */}
-            <path d="M80 18 C86 17 95 19 100 23 C102 27 100 35 95 37 L93 41 L89 41 C87 36 84 27 80 18 Z" fill="#EC4899" />
-            {/* Violet Stripe */}
-            <path d="M83 19 C88 18 94 20 98 24 C100 28 98 34 94 36 L92 40 L90 40 C89 36 86 27 83 19 Z" fill="#8B5CF6" />
-
-            {/* Cheek Blush */}
-            <ellipse cx="100" cy="46" rx="4.5" ry="2.8" fill="#F472B6" fillOpacity="0.55" />
-
-            {/* 12. HASBRO BIG EXPRESSIVE VIOLET EYE */}
-            {state === 'celebrating' ? (
-              // Joyful smiling eyes with lashes
-              <g>
-                <path d="M89 36 Q95 30 101 36" stroke="#581C87" strokeWidth="3" strokeLinecap="round" fill="none" />
-                <path d="M98 29 L102 27 M99 32 L103 31" stroke="#3B0764" strokeWidth="2" strokeLinecap="round" />
-              </g>
-            ) : (
-              <g>
-                {/* Sclera */}
-                <ellipse cx="94" cy="35" rx="6.5" ry="8.5" fill="#FFFFFF" stroke="#581C87" strokeWidth="1.2" />
-                {/* Violet Iris */}
-                <ellipse cx="95" cy="35" rx="5" ry="7" fill="#581C87" />
-                <ellipse cx="96" cy="36" rx="3.8" ry="5.2" fill="#9333EA" />
-                {/* Pupil */}
-                <ellipse cx="95.5" cy="35" rx="2.5" ry="4" fill="#1E1B4B" />
-                {/* Double Catchlights */}
-                <circle cx="93" cy="32" r="2.2" fill="#FFFFFF" />
-                <circle cx="97" cy="38" r="1.3" fill="#FFFFFF" />
-                {/* 3 Iconic Curved Hasbro Eyelashes */}
-                <path d="M98 28 L103 25" stroke="#3B0764" strokeWidth="2" strokeLinecap="round" />
-                <path d="M100 31 L105 30" stroke="#3B0764" strokeWidth="2" strokeLinecap="round" />
-                <path d="M100 35 L104 36" stroke="#3B0764" strokeWidth="2" strokeLinecap="round" />
-              </g>
-            )}
-
-            {/* Smart Scholar Glasses when reading */}
             {state === 'reading' && (
-              <g>
-                <ellipse cx="94" cy="35" rx="8" ry="9.5" stroke="#9333EA" strokeWidth="2" fill="none" />
-                <path d="M86 35 L82 35" stroke="#9333EA" strokeWidth="2" strokeLinecap="round" />
-              </g>
+              <div className="absolute top-1 right-2 text-sm pointer-events-none animate-pulse">
+                📖
+              </div>
             )}
-
-            {/* Muzzle & Sweet Smile */}
-            <circle cx="108" cy="43" r="1.2" fill="#9333EA" />
-            <path d="M102 48 Q106 51 109 46" stroke="#581C87" strokeWidth="1.8" strokeLinecap="round" fill="none" />
-          </svg>
+            {state === 'celebrating' && (
+              <div className="absolute inset-0 pointer-events-none">
+                <span className="absolute -top-2 -right-1 text-base animate-ping">✨</span>
+                <span className="absolute -bottom-1 -left-1 text-sm animate-bounce">💖</span>
+              </div>
+            )}
+          </div>
         );
 
       case 'eggy':
         return (
-          <svg viewBox="0 0 120 120" className="w-full h-full drop-shadow-md" fill="none">
-            {/* Party Crown for Champion Eggy (when celebrating) */}
-            {state === 'celebrating' && (
-              <g className="animate-bounce-gentle">
-                <polygon
-                  points="46,26 50,14 55,22 60,11 65,22 70,14 74,26"
-                  fill="#FACC15"
-                  stroke="#CA8A04"
-                  strokeWidth="1.6"
-                />
-                <circle cx="60" cy="11" r="2.8" fill="#EF4444" />
-                <circle cx="50" cy="14" r="2.2" fill="#3B82F6" />
-                <circle cx="70" cy="14" r="2.2" fill="#10B981" />
-              </g>
-            )}
-
-            {/* 1. SIGNATURE HEAD TUFT (头顶小揪揪 / 呆毛) */}
-            <g>
-              {/* Hair tie band */}
-              <ellipse cx="60" cy="22" rx="4" ry="2" fill="#EA580C" />
-              {/* Cute sprout / tuft */}
-              <path
-                d="M60 21 C58 11 50 6 46 8 C44 9 45 12 49 13 C54 14 57 18 59 22 Z"
-                fill="#F59E0B"
-                stroke="#D97706"
-                strokeWidth="1.3"
-              />
-              <path
-                d="M60 21 C62 10 70 5 74 7 C76 8 75 11 71 12 C66 13 63 18 61 22 Z"
-                fill="#FFB703"
-                stroke="#D97706"
-                strokeWidth="1.3"
-              />
-              <circle cx="60" cy="18" r="3" fill="#FBBF24" />
-            </g>
-
-            {/* 2. ROUND EGG BODY (Egg Yolk Yellow #FFD000) */}
-            <ellipse cx="60" cy="65" rx="36" ry="38" fill="#FFD000" stroke="#D97706" strokeWidth="2.6" />
-
-            {/* Ambient highlight on top of egg */}
-            <path d="M40 36 C48 30 72 30 80 36 C72 32 48 32 40 36 Z" fill="#FEF08A" opacity="0.9" />
-            {/* Pale yellow belly patch */}
-            <ellipse cx="60" cy="74" rx="24" ry="20" fill="#FEF08A" opacity="0.65" />
-
-            {/* 3. ROSY BLUSH CHEEKS */}
-            <ellipse cx="35" cy="67" rx="5.5" ry="3.5" fill="#FB7185" fillOpacity="0.85" />
-            <ellipse cx="85" cy="67" rx="5.5" ry="3.5" fill="#FB7185" fillOpacity="0.85" />
-
-            {/* 4. SIGNATURE OBSIDIAN EYES */}
-            {state === 'celebrating' ? (
-              // Starry Party Eyes
-              <g>
-                <polygon points="46,51 48,55 52,55 49,58 50,62 46,59 42,62 43,58 40,55 44,55" fill="#0F172A" />
-                <polygon points="74,51 76,55 80,55 77,58 78,62 74,59 70,62 71,58 68,55 72,55" fill="#0F172A" />
-              </g>
-            ) : (
-              <g>
-                {/* Left Eye */}
-                <ellipse cx="46" cy="58" rx="6" ry="8.5" fill="#0F172A" />
-                <circle cx="44.2" cy="54.5" r="2.6" fill="#FFFFFF" />
-                <circle cx="48" cy="61.5" r="1.3" fill="#FFFFFF" />
-                {/* Right Eye */}
-                <ellipse cx="74" cy="58" rx="6" ry="8.5" fill="#0F172A" />
-                <circle cx="72.2" cy="54.5" r="2.6" fill="#FFFFFF" />
-                <circle cx="76" cy="61.5" r="1.3" fill="#FFFFFF" />
-              </g>
-            )}
-
-            {/* Round Reader Glasses if reading */}
+          <div className="relative w-full h-full flex items-center justify-center">
+            <img
+              src="/assets/mascots/eggy.png"
+              alt="蛋仔派对 · 蛋小黄 (Eggy)"
+              className="w-full h-full object-contain drop-shadow-md select-none pointer-events-none transform transition-transform hover:scale-105"
+            />
             {state === 'reading' && (
-              <g>
-                <circle cx="46" cy="58" r="9" fill="none" stroke="#2563EB" strokeWidth="2.5" />
-                <circle cx="74" cy="58" r="9" fill="none" stroke="#2563EB" strokeWidth="2.5" />
-                <line x1="55" y1="58" x2="65" y2="58" stroke="#2563EB" strokeWidth="2.5" />
-              </g>
+              <div className="absolute top-1 right-2 text-sm pointer-events-none animate-pulse">
+                ⚡
+              </div>
             )}
-
-            {/* 5. CHEERFUL OPEN SMILE */}
-            <path d="M51 68 Q60 80 69 68 Z" fill="#E11D48" stroke="#0F172A" strokeWidth="2" strokeLinejoin="round" />
-            <path d="M54 72 Q60 77 66 72" fill="#FDA4AF" />
-
-            {/* 6. LEFT HAND */}
-            <circle cx="21" cy="70" r="7" fill="#FFD000" stroke="#D97706" strokeWidth="2.2" />
-
-            {/* 7. RIGHT HAND & SALTY FISH (咸鱼 🐟) */}
-            <g transform="translate(90, 68)">
-              {/* Fish tilted diagonally up */}
-              <g transform="rotate(-30)">
-                {/* Fish Body */}
-                <path d="M-8 0 C0 -9 20 -8 28 1 C20 10 0 9 -8 0 Z" fill="#22D3EE" stroke="#0891B2" strokeWidth="1.8" />
-                {/* Tail fin */}
-                <polygon points="27,1 36,-6 33,1 36,8" fill="#06B6D4" stroke="#0891B2" strokeWidth="1.5" strokeLinejoin="round" />
-                {/* Dorsal fin */}
-                <path d="M8 -7 Q13 -12 18 -5" fill="#06B6D4" stroke="#0891B2" strokeWidth="1.2" />
-                {/* Deadpan X Eye */}
-                <line x1="-2" y1="-2" x2="4" y2="3" stroke="#0F172A" strokeWidth="1.6" strokeLinecap="round" />
-                <line x1="4" y1="-2" x2="-2" y2="3" stroke="#0F172A" strokeWidth="1.6" strokeLinecap="round" />
-              </g>
-              {/* Hand grabbing fish */}
-              <circle cx="0" cy="0" r="7" fill="#FFD000" stroke="#D97706" strokeWidth="2.2" />
-            </g>
-
-            {/* 8. OFFICIAL WHITE SOCKS (白袜子) & SNEAKERS */}
-            {/* Left Foot */}
-            <ellipse cx="46" cy="103" rx="8" ry="5.5" fill="#FFFFFF" stroke="#CBD5E1" strokeWidth="1.8" />
-            <ellipse cx="46" cy="106" rx="8.5" ry="3.5" fill="#3B82F6" stroke="#1D4ED8" strokeWidth="1.6" />
-            {/* Right Foot */}
-            <ellipse cx="74" cy="103" rx="8" ry="5.5" fill="#FFFFFF" stroke="#CBD5E1" strokeWidth="1.8" />
-            <ellipse cx="74" cy="106" rx="8.5" ry="3.5" fill="#3B82F6" stroke="#1D4ED8" strokeWidth="1.6" />
-          </svg>
+            {state === 'celebrating' && (
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-xl pointer-events-none animate-bounce-gentle">
+                👑
+              </div>
+            )}
+          </div>
         );
     }
   };
@@ -589,13 +346,13 @@ export const Mascot: React.FC<MascotProps> = ({
       <div className="w-20 h-20 sm:w-24 sm:h-24">{getMascotSVG()}</div>
       {/* Speech bubble or status tag */}
       {showTag && (
-        <div className="absolute -bottom-2 -right-1 bg-white/95 px-2 py-0.5 rounded-full text-[10px] font-bold shadow-sm border border-pink-200/50 flex items-center gap-1 pointer-events-none">
+        <div className="absolute -bottom-2 -right-1 bg-white/95 px-2 py-0.5 rounded-full text-[10px] font-bold shadow-sm border border-pink-200/50 flex items-center gap-1 pointer-events-none whitespace-nowrap">
           {state === 'reading' && (
             <span className="animate-pulse">
               {type === 'eggy'
                 ? '⚡ 搞快点速读中'
                 : type === 'pony'
-                ? '✨ 魔法伴读中'
+                ? '✨ 柔柔伴读中'
                 : '📖 速读中'}
             </span>
           )}
@@ -604,25 +361,25 @@ export const Mascot: React.FC<MascotProps> = ({
               {type === 'eggy'
                 ? '⏸️ 歇会儿再冲'
                 : type === 'pony'
-                ? '⏸️ 稍作休息'
+                ? '⏸️ 轻轻休息'
                 : '⏸️ 休息啦'}
             </span>
           )}
           {state === 'celebrating' && (
             <span>
               {type === 'eggy'
-                ? '👑 顺利夺冠！'
+                ? '👑 顺利夺冠撞走不开心！'
                 : type === 'pony'
-                ? '🌟 友谊之星闪耀！'
+                ? '💖 善良之心闪耀！'
                 : '🎉 太棒啦'}
             </span>
           )}
           {state === 'idle' && (
             <span>
               {type === 'eggy'
-                ? '🍳 撞走不开心'
+                ? '🍳 蛋仔冲冲冲！'
                 : type === 'pony'
-                ? '💜 友谊就是魔法'
+                ? '🦋 善良就是魔法'
                 : '✨ 伴读中'}
             </span>
           )}
