@@ -24,21 +24,21 @@ export const ThemePickerModal: React.FC<ThemePickerModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-pop-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/40 backdrop-blur-sm animate-pop-in">
       <div
-        className="w-full max-w-md bg-white rounded-3xl shadow-2xl border-4 border-pink-100 p-6 relative overflow-hidden"
+        className="w-full max-w-xl max-h-[90vh] bg-white rounded-3xl sm:rounded-4xl shadow-2xl border-4 border-pink-100 p-5 sm:p-6 relative overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+        <div className="flex items-center justify-between pb-3 border-b border-gray-100 shrink-0">
           <div className="flex items-center gap-2">
             <span className="text-2xl">🎨</span>
             <div>
-              <h2 className="text-xl font-extrabold text-gray-800">
+              <h2 className="text-lg sm:text-xl font-extrabold text-gray-800">
                 选择你喜欢的萌宠皮肤
               </h2>
               <p className="text-xs text-gray-500 font-medium">
-                换一个色彩，开启不一样的速读冒险！
+                6 套可爱主题，开启不一样的速读冒险！
               </p>
             </div>
           </div>
@@ -54,7 +54,7 @@ export const ThemePickerModal: React.FC<ThemePickerModalProps> = ({
         </div>
 
         {/* Theme List */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4 overflow-y-auto flex-1 pr-1">
           {allThemes.map((t) => {
             const isSelected = currentThemeId === t.id;
             return (

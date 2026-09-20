@@ -1,4 +1,4 @@
-export type ThemeId = 'candy' | 'forest' | 'space' | 'ocean';
+export type ThemeId = 'candy' | 'forest' | 'space' | 'ocean' | 'pony' | 'eggy';
 
 export interface ThemeConfig {
   id: ThemeId;
@@ -6,7 +6,7 @@ export interface ThemeConfig {
   subtitle: string;
   emoji: string;
   mascotName: string;
-  mascotType: 'bunny' | 'bear' | 'cat' | 'dolphin';
+  mascotType: 'bunny' | 'bear' | 'cat' | 'dolphin' | 'pony' | 'eggy';
   colors: {
     bgGradient: string;
     cardBg: string;
@@ -44,6 +44,50 @@ export const THEMES: Record<ThemeId, ThemeConfig> = {
       navBg: 'bg-white/80 border-pink-200',
       progressBar: 'from-pink-400 to-rose-500',
       badgeBg: 'bg-rose-100 text-rose-700 border-rose-200',
+    },
+  },
+  pony: {
+    id: 'pony',
+    name: '小马宝莉',
+    subtitle: '彩虹魔法 · 友谊之星',
+    emoji: '🦄',
+    mascotName: '彩虹宝莉 (Rainbow Sparkle)',
+    mascotType: 'pony',
+    colors: {
+      bgGradient: 'from-purple-200 via-pink-100 to-cyan-100',
+      cardBg: 'bg-white/90 backdrop-blur-md',
+      cardBorder: 'border-purple-300',
+      textPrimary: 'text-purple-950',
+      textSecondary: 'text-purple-700',
+      primaryBtn: 'bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500 text-white shadow-purple-300',
+      primaryBtnHover: 'hover:from-purple-600 hover:to-pink-600',
+      accentBg: 'bg-purple-100 text-purple-800',
+      orpColor: '#C026D3', // Fuchsia 600
+      navBg: 'bg-white/85 border-purple-200',
+      progressBar: 'from-purple-400 via-pink-400 to-cyan-400',
+      badgeBg: 'bg-purple-100 text-purple-800 border-purple-300',
+    },
+  },
+  eggy: {
+    id: 'eggy',
+    name: '蛋仔派对',
+    subtitle: 'Q弹圆滚 · 潮玩冲关',
+    emoji: '🍳',
+    mascotName: '顽皮蛋仔 (Eggy Bro)',
+    mascotType: 'eggy',
+    colors: {
+      bgGradient: 'from-yellow-200 via-amber-100 to-orange-100',
+      cardBg: 'bg-white/95 backdrop-blur-md',
+      cardBorder: 'border-amber-300',
+      textPrimary: 'text-amber-950',
+      textSecondary: 'text-amber-800',
+      primaryBtn: 'bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-400 text-amber-950 font-black shadow-amber-300',
+      primaryBtnHover: 'hover:from-yellow-500 hover:to-orange-500',
+      accentBg: 'bg-amber-100 text-amber-900',
+      orpColor: '#EA580C', // Orange 600
+      navBg: 'bg-white/85 border-amber-200',
+      progressBar: 'from-yellow-400 via-amber-400 to-orange-500',
+      badgeBg: 'bg-amber-100 text-amber-900 border-amber-300',
     },
   },
   forest: {

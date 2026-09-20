@@ -41,6 +41,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) {
       if (currentThemeId === 'candy') meta.setAttribute('content', '#FF8EAC');
+      else if (currentThemeId === 'pony') meta.setAttribute('content', '#C084FC');
+      else if (currentThemeId === 'eggy') meta.setAttribute('content', '#FBBF24');
       else if (currentThemeId === 'forest') meta.setAttribute('content', '#10B981');
       else if (currentThemeId === 'space') meta.setAttribute('content', '#0F172A');
       else if (currentThemeId === 'ocean') meta.setAttribute('content', '#06B6D4');
