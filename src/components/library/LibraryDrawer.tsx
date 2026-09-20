@@ -31,6 +31,7 @@ export const LibraryDrawer: React.FC<LibraryDrawerProps> = ({
     exportLibraryJson,
   } = useLibrary();
   const { playPop, playChime } = useSoundEffects();
+  const [activeCategory, setActiveCategory] = React.useState<string>('all');
 
   if (!isOpen) return null;
 
@@ -53,8 +54,6 @@ export const LibraryDrawer: React.FC<LibraryDrawerProps> = ({
     playPop();
     exportLibraryJson(id);
   };
-
-  const [activeCategory, setActiveCategory] = React.useState<string>('all');
 
   const CATEGORIES = [
     { id: 'all', name: '全部' },

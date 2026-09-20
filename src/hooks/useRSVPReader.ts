@@ -23,13 +23,11 @@ export function useRSVPReader({
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Synchronously reset when libraryId or words change (BEFORE render commits)
+  // Synchronously reset when libraryId changes (BEFORE render commits)
   const [prevLibraryKey, setPrevLibraryKey] = useState<string>(libraryId || '');
-  const [prevWords, setPrevWords] = useState<WordItem[]>(words);
 
-  if ((libraryId && libraryId !== prevLibraryKey) || words !== prevWords) {
-    setPrevLibraryKey(libraryId || '');
-    setPrevWords(words);
+  if (libraryId && libraryId !== prevLibraryKey) {
+    setPrevLibraryKey(libraryId);
     setCurrentIndex(0);
     setIsPlaying(false);
     if (timerRef.current) {
