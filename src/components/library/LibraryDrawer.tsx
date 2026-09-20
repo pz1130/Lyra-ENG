@@ -73,7 +73,10 @@ export const LibraryDrawer: React.FC<LibraryDrawerProps> = ({
   });
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-end bg-black/40 backdrop-blur-xs animate-pop-in">
+    <div
+      className="fixed inset-0 z-50 flex justify-end bg-black/40 backdrop-blur-xs animate-pop-in"
+      onClick={onClose}
+    >
       <div
         className="w-full max-w-md h-full bg-white shadow-2xl flex flex-col overflow-hidden border-l border-gray-100"
         onClick={(e) => e.stopPropagation()}
@@ -143,75 +146,114 @@ export const LibraryDrawer: React.FC<LibraryDrawerProps> = ({
 
         {/* Library list */}
         <div className="flex-1 overflow-y-auto p-4 space-y-3">
-          {filteredLibraries.map((lib) => {
-            const isSelected = activeLibraryId === lib.id;
-            return (
-              <div
-                key={lib.id}
-                onClick={() => handleSelect(lib.id)}
-                className={`p-4 rounded-3xl border-2 transition-all cursor-pointer relative group ${
-                  isSelected
-                    ? 'border-pink-500 bg-pink-50/70 shadow-md ring-2 ring-pink-300/40'
-                    : 'border-gray-200 hover:border-pink-200 hover:bg-pink-50/20 bg-white'
-                }`}
-              >
-                {/* Check badge */}
-                {isSelected && (
-                  <div className="absolute top-3.5 right-3.5 w-6 h-6 rounded-full bg-pink-500 text-white flex items-center justify-center shadow-xs">
-                    <Check className="w-3.5 h-3.5 stroke-[3]" />
-                  </div>
-                )}
-
-                <div className="flex items-start gap-3">
-                  <span className="text-3xl p-2 rounded-2xl bg-white shadow-xs border border-gray-100">
-                    {lib.badgeEmoji || '📖'}
-                  </span>
-                  <div className="flex-1 min-w-0 pr-6">
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      <h3 className="font-black text-sm sm:text-base text-gray-900 truncate">
-                        {lib.title}
-                      </h3>
-                      {lib.isCustom && (
-                        <span className="text-[10px] font-black px-1.5 py-0.5 rounded-full bg-purple-100 text-purple-700">
-                          自定义
-                        </span>
-                      )}
+          {filteredLibraries.length === 0 ? (
+            <div className="h-64 flex flex-col items-center justify-center text-center p-6 space-y-3 rounded-3xl bg-pink-50/40 border-2 border-dashed border-pink-200">
+              <span className="text-4xl animate-bounce-gentle">✨</span>
+              <div className="space-y-1">
+                <p className="text-sm font-black text-gray-700">
+                  {activeCategory === 'custom'
+                    ? '还没有自定义词书呢'
+                    : '该分类下暂时没有词书'}
+                </p>
+                <p className="text-xs text-gray-500 font-bold">
+                  {activeCategory === 'custom'
+                    ? '点击下方按钮，导入 CSV 或粘贴英文短文'
+                    : '可以切换到其他分类查看精选词库哦'}
+                </p>
+              </div>
+              {activeCategory === 'custom' ? (
+                <button
+                  onClick={() => {
+                    playPop();
+                    onOpenImport();
+                  }}
+                  className="px-4 py-2 rounded-2xl bg-pink-500 text-white font-black text-xs shadow-md shadow-pink-200 hover:bg-pink-600 transition-all active:scale-95"
+                >
+                  立即导入自定义词书
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    playPop();
+                    setActiveCategory('all');
+                  }}
+                  className="px-4 py-2 rounded-2xl bg-white border border-gray-200 text-gray-700 font-black text-xs shadow-xs hover:bg-gray-50 transition-all active:scale-95"
+                >
+                  查看全部词书
+                </button>
+              )}
+            </div>
+          ) : (
+            filteredLibraries.map((lib) => {
+              const isSelected = activeLibraryId === lib.id;
+              return (
+                <div
+                  key={lib.id}
+                  onClick={() => handleSelect(lib.id)}
+                  className={`p-4 rounded-3xl border-2 transition-all cursor-pointer relative group ${
+                    isSelected
+                      ? 'border-pink-500 bg-pink-50/70 shadow-md ring-2 ring-pink-300/40'
+                      : 'border-gray-200 hover:border-pink-200 hover:bg-pink-50/20 bg-white'
+                  }`}
+                >
+                  {/* Check badge */}
+                  {isSelected && (
+                    <div className="absolute top-3.5 right-3.5 w-6 h-6 rounded-full bg-pink-500 text-white flex items-center justify-center shadow-xs">
+                      <Check className="w-3.5 h-3.5 stroke-[3]" />
                     </div>
-                    <p className="text-xs text-gray-500 mt-1 line-clamp-2">
-                      {lib.description}
-                    </p>
+                  )}
 
-                    <div className="flex items-center gap-3 mt-3 text-xs font-bold text-gray-400">
-                      <span className="flex items-center gap-1 text-pink-600 font-extrabold">
-                        <BookOpen className="w-3.5 h-3.5" />
-                        {lib.words.length} 词
-                      </span>
+                  <div className="flex items-start gap-3">
+                    <span className="text-3xl p-2 rounded-2xl bg-white shadow-xs border border-gray-100">
+                      {lib.badgeEmoji || '📖'}
+                    </span>
+                    <div className="flex-1 min-w-0 pr-6">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <h3 className="font-black text-sm sm:text-base text-gray-900 truncate">
+                          {lib.title}
+                        </h3>
+                        {lib.isCustom && (
+                          <span className="text-[10px] font-black px-1.5 py-0.5 rounded-full bg-purple-100 text-purple-700">
+                            自定义
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-gray-500 mt-1 line-clamp-2">
+                        {lib.description}
+                      </p>
 
-                      {/* Custom library actions */}
-                      {lib.isCustom && (
-                        <div className="flex items-center gap-1 ml-auto">
-                          <button
-                            onClick={(e) => handleExport(e, lib.id)}
-                            className="p-1 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100"
-                            title="导出 JSON 备份"
-                          >
-                            <Download className="w-3.5 h-3.5" />
-                          </button>
-                          <button
-                            onClick={(e) => handleDelete(e, lib.id, lib.title)}
-                            className="p-1 rounded-lg text-gray-400 hover:text-rose-600 hover:bg-rose-50"
-                            title="删除词书"
-                          >
-                            <Trash2 className="w-3.5 h-3.5" />
-                          </button>
-                        </div>
-                      )}
+                      <div className="flex items-center gap-3 mt-3 text-xs font-bold text-gray-400">
+                        <span className="flex items-center gap-1 text-pink-600 font-extrabold">
+                          <BookOpen className="w-3.5 h-3.5" />
+                          {lib.words?.length || 0} 词
+                        </span>
+
+                        {/* Custom library actions */}
+                        {lib.isCustom && (
+                          <div className="flex items-center gap-1 ml-auto">
+                            <button
+                              onClick={(e) => handleExport(e, lib.id)}
+                              className="p-1 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100"
+                              title="导出 JSON 备份"
+                            >
+                              <Download className="w-3.5 h-3.5" />
+                            </button>
+                            <button
+                              onClick={(e) => handleDelete(e, lib.id, lib.title)}
+                              className="p-1 rounded-lg text-gray-400 hover:text-rose-600 hover:bg-rose-50"
+                              title="删除词书"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          )}
         </div>
 
         {/* Footer info */}

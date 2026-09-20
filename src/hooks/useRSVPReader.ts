@@ -3,6 +3,7 @@ import { ORPResult, ReaderSettings, WordItem } from '../types/index';
 import { processRSVPWord, wpmToMs } from '../utils/rsvpHelper';
 
 interface UseRSVPReaderProps {
+  libraryId?: string;
   words: WordItem[];
   settings: ReaderSettings;
   onComplete?: () => void;
@@ -11,6 +12,7 @@ interface UseRSVPReaderProps {
 }
 
 export function useRSVPReader({
+  libraryId,
   words,
   settings,
   onComplete,
@@ -20,6 +22,21 @@ export function useRSVPReader({
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Synchronously reset when libraryId or words change (BEFORE render commits)
+  const [prevLibraryKey, setPrevLibraryKey] = useState<string>(libraryId || '');
+  const [prevWords, setPrevWords] = useState<WordItem[]>(words);
+
+  if ((libraryId && libraryId !== prevLibraryKey) || words !== prevWords) {
+    setPrevLibraryKey(libraryId || '');
+    setPrevWords(words);
+    setCurrentIndex(0);
+    setIsPlaying(false);
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  }
 
   // Keep references to latest callbacks and settings to avoid closure capture issues
   const wordsRef = useRef(words);
@@ -37,11 +54,17 @@ export function useRSVPReader({
   const onSpeakRef = useRef(onSpeak);
   onSpeakRef.current = onSpeak;
 
+  // Clamped safe index guaranteed to be in valid range [0, words.length - 1]
+  const safeIndex =
+    words.length > 0
+      ? Math.max(0, Math.min(currentIndex, words.length - 1))
+      : 0;
+
   // Base interval in ms from WPM
   const baseIntervalMs = useMemo(() => wpmToMs(settings.wpm), [settings.wpm]);
 
-  // Current item being displayed
-  const currentItem = words[currentIndex] || null;
+  // Current item being displayed - ALWAYS fall back to words[0] or words[safeIndex] so it NEVER renders blank!
+  const currentItem = words[safeIndex] || (words.length > 0 ? words[0] : null);
 
   // Process current item into ORP chunks (prefix, focal letter, suffix, delay)
   const currentResult: ORPResult | null = useMemo(() => {
@@ -56,8 +79,8 @@ export function useRSVPReader({
   // Calculate percentage progress
   const progress = useMemo(() => {
     if (words.length <= 1) return 100;
-    return Math.min(100, Math.round(((currentIndex + 1) / words.length) * 100));
-  }, [currentIndex, words.length]);
+    return Math.min(100, Math.round(((safeIndex + 1) / words.length) * 100));
+  }, [safeIndex, words.length]);
 
   // Stop current timer
   const clearTimer = useCallback(() => {
@@ -68,31 +91,23 @@ export function useRSVPReader({
   }, []);
 
   // Jump to specific word index
-  const jumpTo = useCallback(
-    (index: number) => {
-      const target = Math.max(0, Math.min(index, wordsRef.current.length - 1));
-      setCurrentIndex(target);
-    },
-    []
-  );
+  const jumpTo = useCallback((index: number) => {
+    const len = wordsRef.current.length;
+    if (len === 0) return;
+    const target = Math.max(0, Math.min(index, len - 1));
+    setCurrentIndex(target);
+  }, []);
 
   // Step back N words (default 5)
-  const stepBack = useCallback(
-    (count = 5) => {
-      setCurrentIndex((prev) => Math.max(0, prev - count));
-    },
-    []
-  );
+  const stepBack = useCallback((count = 5) => {
+    setCurrentIndex((prev) => Math.max(0, prev - count));
+  }, []);
 
   // Step forward N words (default 5)
-  const stepForward = useCallback(
-    (count = 5) => {
-      setCurrentIndex((prev) =>
-        Math.min(wordsRef.current.length - 1, prev + count)
-      );
-    },
-    []
-  );
+  const stepForward = useCallback((count = 5) => {
+    const len = wordsRef.current.length;
+    setCurrentIndex((prev) => Math.min(Math.max(0, len - 1), prev + count));
+  }, []);
 
   // Reset to first word
   const reset = useCallback(() => {
@@ -105,21 +120,27 @@ export function useRSVPReader({
   const pause = useCallback(() => {
     clearTimer();
     setIsPlaying(false);
-    if (settingsRef.current.autoPronounceOnPause && wordsRef.current[currentIndex]) {
-      onSpeakRef.current?.(wordsRef.current[currentIndex].word);
+    if (
+      settingsRef.current.autoPronounceOnPause &&
+      wordsRef.current[safeIndex]
+    ) {
+      onSpeakRef.current?.(wordsRef.current[safeIndex].word);
     }
-  }, [clearTimer, currentIndex]);
+  }, [clearTimer, safeIndex]);
 
   // Start / Resume playback
   const play = useCallback(() => {
-    if (wordsRef.current.length === 0) return;
-    
-    // If reached end, restart from beginning
-    if (currentIndex >= wordsRef.current.length - 1) {
-      setCurrentIndex(0);
-    }
+    const list = wordsRef.current;
+    if (!list || list.length === 0) return;
+
+    setCurrentIndex((prev) => {
+      if (prev >= list.length - 1) {
+        return 0;
+      }
+      return prev;
+    });
     setIsPlaying(true);
-  }, [currentIndex]);
+  }, []);
 
   const togglePlay = useCallback(() => {
     if (isPlaying) {
@@ -136,14 +157,16 @@ export function useRSVPReader({
       return;
     }
 
-    if (words.length === 0) {
+    if (!words || words.length === 0) {
       setIsPlaying(false);
+      clearTimer();
       return;
     }
 
-    const currentWord = words[currentIndex];
+    const currentWord = words[safeIndex];
     if (!currentWord) {
       setIsPlaying(false);
+      clearTimer();
       return;
     }
 
@@ -151,7 +174,7 @@ export function useRSVPReader({
     onTickRef.current?.();
 
     // Auto pronounce every word if kid has that option turned on
-    if (settingsRef.current.autoPronounceEveryWord) {
+    if (settingsRef.current.autoPronounceEveryWord && currentWord.word) {
       onSpeakRef.current?.(currentWord.word);
     }
 
@@ -164,8 +187,8 @@ export function useRSVPReader({
 
     // Schedule next word
     timerRef.current = setTimeout(() => {
-      if (currentIndex < words.length - 1) {
-        setCurrentIndex((prev) => prev + 1);
+      if (safeIndex < words.length - 1) {
+        setCurrentIndex(safeIndex + 1);
       } else {
         // Finished entire word book!
         setIsPlaying(false);
@@ -177,17 +200,10 @@ export function useRSVPReader({
     return () => {
       clearTimer();
     };
-  }, [isPlaying, currentIndex, words, baseIntervalMs, clearTimer]);
-
-  // Reset index if words array changes completely
-  useEffect(() => {
-    setCurrentIndex(0);
-    setIsPlaying(false);
-    clearTimer();
-  }, [words, clearTimer]);
+  }, [isPlaying, safeIndex, words, baseIntervalMs, clearTimer]);
 
   return {
-    currentIndex,
+    currentIndex: safeIndex,
     currentItem,
     currentResult,
     isPlaying,

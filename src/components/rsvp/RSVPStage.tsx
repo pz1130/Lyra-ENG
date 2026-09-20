@@ -13,6 +13,7 @@ interface RSVPStageProps {
   totalWords: number;
   isPlaying: boolean;
   onTogglePlay: () => void;
+  onOpenLibraryDrawer?: () => void;
 }
 
 export const RSVPStage: React.FC<RSVPStageProps> = ({
@@ -22,6 +23,7 @@ export const RSVPStage: React.FC<RSVPStageProps> = ({
   totalWords,
   isPlaying,
   onTogglePlay,
+  onOpenLibraryDrawer,
 }) => {
   const { theme } = useTheme();
   const { readerSettings } = useLibrary();
@@ -129,12 +131,32 @@ export const RSVPStage: React.FC<RSVPStageProps> = ({
         )}
 
         {/* Word Stage with Rigid ORP Alignment */}
-        {currentResult ? (
+        {totalWords === 0 ? (
+          <div className="flex flex-col items-center gap-3 text-center py-4">
+            <span className="text-4xl animate-bounce-gentle">📚</span>
+            <p className="text-sm font-bold text-gray-500">
+              当前词书暂时还没有单词哦
+            </p>
+            {onOpenLibraryDrawer && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onOpenLibraryDrawer();
+                }}
+                className="px-4 py-2 rounded-2xl bg-pink-500 text-white font-black text-xs shadow-md shadow-pink-200 hover:bg-pink-600 transition-all active:scale-95"
+              >
+                打开词书库选择其他词书
+              </button>
+            )}
+          </div>
+        ) : currentResult ? (
           <div
             className={`w-full flex items-center justify-center font-extrabold tracking-normal ${getFontSizeClass()} ${getFontFamilyClass()} transition-transform duration-75`}
           >
             {/* Left Prefix (Right-aligned) */}
-            <div className="w-1/2 text-right pr-[0.05em] overflow-hidden whitespace-nowrap text-gray-800 dark:text-gray-100">
+            <div
+              className={`w-1/2 text-right pr-[0.05em] overflow-hidden whitespace-nowrap ${theme.colors.textPrimary}`}
+            >
               {currentResult.prefix}
             </div>
 
@@ -152,14 +174,16 @@ export const RSVPStage: React.FC<RSVPStageProps> = ({
             </div>
 
             {/* Right Suffix (Left-aligned) */}
-            <div className="w-1/2 text-left pl-[0.05em] overflow-hidden whitespace-nowrap text-gray-800 dark:text-gray-100">
+            <div
+              className={`w-1/2 text-left pl-[0.05em] overflow-hidden whitespace-nowrap ${theme.colors.textPrimary}`}
+            >
               {currentResult.suffix}
             </div>
           </div>
         ) : (
           <div className="text-gray-400 text-lg font-bold flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-amber-400" />
-            点击下方「开始阅读」启程
+            准备就绪，轻触屏幕开始速读
           </div>
         )}
 

@@ -42,7 +42,8 @@ export const App: React.FC = () => {
     jumpTo,
     reset,
   } = useRSVPReader({
-    words: activeLibrary.words,
+    libraryId: activeLibrary.id,
+    words: activeLibrary.words || [],
     settings: readerSettings,
     onComplete: () => {
       setIsCompletionOpen(true);
@@ -129,22 +130,25 @@ export const App: React.FC = () => {
       {/* Main Interactive Speed Reading Area */}
       <main className="flex-1 w-full max-w-5xl mx-auto px-3 sm:px-6 py-4 sm:py-6 flex flex-col justify-center gap-4 sm:gap-6">
         <RSVPStage
+          key={`stage-${activeLibrary.id}`}
           currentResult={currentResult}
           currentItem={currentItem}
           currentIndex={currentIndex}
-          totalWords={activeLibrary.words.length}
+          totalWords={activeLibrary.words?.length || 0}
           isPlaying={isPlaying}
           onTogglePlay={togglePlay}
+          onOpenLibraryDrawer={() => setIsLibraryDrawerOpen(true)}
         />
 
         <RSVPControls
+          key={`controls-${activeLibrary.id}`}
           isPlaying={isPlaying}
           onTogglePlay={togglePlay}
           onStepBack={stepBack}
           onStepForward={stepForward}
           onReset={reset}
           currentIndex={currentIndex}
-          totalWords={activeLibrary.words.length}
+          totalWords={activeLibrary.words?.length || 0}
           onScrub={jumpTo}
         />
       </main>

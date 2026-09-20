@@ -102,7 +102,7 @@ export const CompletionCelebration: React.FC<CompletionCelebrationProps> = ({
           <div>
             <div className="text-xs font-bold text-amber-800">总共阅读</div>
             <div className="text-xl font-black text-amber-900 mt-0.5">
-              {activeLibrary.words.length} <span className="text-xs font-bold">词</span>
+              {activeLibrary.words?.length || 0} <span className="text-xs font-bold">词</span>
             </div>
           </div>
           <div>

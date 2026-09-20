@@ -70,7 +70,7 @@ export const Header: React.FC<HeaderProps> = ({
           <BookOpen className="w-3.5 h-3.5 shrink-0" />
           <span className="truncate">{activeLibrary.title}</span>
           <span className="text-[10px] opacity-75 shrink-0 font-normal">
-            ({activeLibrary.words.length}词)
+            ({activeLibrary.words?.length || 0}词)
           </span>
         </button>
       </div>

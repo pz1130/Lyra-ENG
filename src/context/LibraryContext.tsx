@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { DEFAULT_LIBRARIES } from '../data/defaultLibraries';
-import { ReaderSettings, WordLibrary } from '../types/index';
+import { LibraryCategory, ReaderSettings, WordLibrary } from '../types/index';
 
 interface LibraryContextType {
   libraries: WordLibrary[];
@@ -44,12 +44,44 @@ const DEFAULT_SETTINGS: ReaderSettings = {
 export const LibraryProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  // Load custom libraries
+  // Load and sanitize custom libraries
   const [customLibraries, setCustomLibraries] = useState<WordLibrary[]>(() => {
     try {
       const saved = localStorage.getItem(CUSTOM_LIBS_KEY);
       if (saved) {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) {
+          return parsed
+            .filter((item) => item && typeof item === 'object')
+            .map((lib) => ({
+              id: String(lib.id || `custom-${Date.now()}`),
+              title: String(lib.title || '自定义词书'),
+              description: String(lib.description || ''),
+              category: (['sight-words', 'phonics', 'discover', 'stories', 'custom', 'cambridge'].includes(lib.category)
+                ? lib.category
+                : 'custom') as LibraryCategory,
+              badgeEmoji: String(lib.badgeEmoji || '✨'),
+              isCustom: true,
+              createdAt: Number(lib.createdAt) || Date.now(),
+              words: Array.isArray(lib.words)
+                ? lib.words
+                    .filter(
+                      (w: any) =>
+                        w && typeof w.word === 'string' && w.word.trim().length > 0
+                    )
+                    .map((w: any, idx: number) => ({
+                      id: String(w.id || `word-${idx}`),
+                      word: String(w.word).trim(),
+                      translation: w.translation
+                        ? String(w.translation).trim()
+                        : undefined,
+                      phonetic: w.phonetic
+                        ? String(w.phonetic).trim()
+                        : undefined,
+                    }))
+                : [],
+            }));
+        }
       }
     } catch {
       // Ignore
@@ -58,12 +90,18 @@ export const LibraryProvider: React.FC<{ children: React.ReactNode }> = ({
   });
 
   // All libraries: default built-ins + custom ones
-  const allLibraries = [...DEFAULT_LIBRARIES, ...customLibraries];
+  const allLibraries = React.useMemo(
+    () => [...DEFAULT_LIBRARIES, ...customLibraries],
+    [customLibraries]
+  );
 
-  // Active library id
+  // Active library id with legacy migration and existence check
   const [activeLibraryId, setActiveLibraryIdState] = useState<string>(() => {
     try {
-      const saved = localStorage.getItem(ACTIVE_LIB_KEY);
+      let saved = localStorage.getItem(ACTIVE_LIB_KEY);
+      if (saved === 'oxford-phonics-5') {
+        saved = 'opw-level-5';
+      }
       if (saved && allLibraries.some((l) => l.id === saved)) {
         return saved;
       }
@@ -73,9 +111,14 @@ export const LibraryProvider: React.FC<{ children: React.ReactNode }> = ({
     return DEFAULT_LIBRARIES[0].id;
   });
 
-  // Active library object
-  const activeLibrary =
-    allLibraries.find((l) => l.id === activeLibraryId) || DEFAULT_LIBRARIES[0];
+  // Active library object with guaranteed valid words array
+  const activeLibrary: WordLibrary = React.useMemo(() => {
+    const found = allLibraries.find((l) => l.id === activeLibraryId);
+    if (found && Array.isArray(found.words) && found.words.length > 0) {
+      return found;
+    }
+    return DEFAULT_LIBRARIES[0];
+  }, [allLibraries, activeLibraryId]);
 
   // Reader Settings
   const [readerSettings, setReaderSettings] = useState<ReaderSettings>(() => {
@@ -91,9 +134,10 @@ export const LibraryProvider: React.FC<{ children: React.ReactNode }> = ({
   });
 
   const setActiveLibraryId = (id: string) => {
-    setActiveLibraryIdState(id);
+    const normalizedId = id === 'oxford-phonics-5' ? 'opw-level-5' : id;
+    setActiveLibraryIdState(normalizedId);
     try {
-      localStorage.setItem(ACTIVE_LIB_KEY, id);
+      localStorage.setItem(ACTIVE_LIB_KEY, normalizedId);
     } catch {
       // Ignore
     }
