@@ -30,7 +30,12 @@ export const RSVPStage: React.FC<RSVPStageProps> = ({
   const handlePronounce = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (currentItem?.word) {
-      speak(currentItem.word, readerSettings.speechRate);
+      speak(currentItem.word, {
+        rate: readerSettings.speechRate,
+        pitch: readerSettings.speechPitch,
+        tone: readerSettings.voiceTone,
+        voiceURI: readerSettings.selectedVoiceURI,
+      });
     }
   };
 

@@ -48,10 +48,17 @@ export const App: React.FC = () => {
       setIsCompletionOpen(true);
     },
     onTick: () => {
-      playTick();
+      if (readerSettings.tickSoundEnabled) {
+        playTick();
+      }
     },
     onSpeak: (word: string) => {
-      speak(word, readerSettings.speechRate);
+      speak(word, {
+        rate: readerSettings.speechRate,
+        pitch: readerSettings.speechPitch,
+        tone: readerSettings.voiceTone,
+        voiceURI: readerSettings.selectedVoiceURI,
+      });
     },
   });
 

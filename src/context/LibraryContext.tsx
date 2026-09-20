@@ -34,8 +34,11 @@ const DEFAULT_SETTINGS: ReaderSettings = {
   autoPronounceOnPause: true,
   autoPronounceEveryWord: false,
   soundEffectsEnabled: true,
+  tickSoundEnabled: false, // Default off to keep reading peaceful
   showTranslation: true,
   speechRate: 0.9,
+  speechPitch: 1.35, // Cute, bright, friendly child-like pitch
+  voiceTone: 'child',
 };
 
 export const LibraryProvider: React.FC<{ children: React.ReactNode }> = ({

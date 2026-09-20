@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { useLibrary } from '../../context/LibraryContext';
 import { useSoundEffects } from '../../hooks/useSoundEffects';
+import { useSpeechSynthesis } from '../../hooks/useSpeechSynthesis';
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -21,6 +22,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 }) => {
   const { readerSettings, updateSettings, resetSettings } = useLibrary();
   const { playPop } = useSoundEffects();
+  const { voices, speak } = useSpeechSynthesis();
 
   if (!isOpen) return null;
 
@@ -210,11 +212,142 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             </div>
           </div>
 
-          {/* Section 3: Speech Audio */}
+          {/* Section 3: Cute Voice & Pronunciation */}
           <div className="space-y-3 pt-3 border-t border-gray-100">
-            <div className="flex items-center gap-1.5 font-black text-xs text-gray-900">
-              <Volume2 className="w-4 h-4 text-pink-500" />
-              <span>真人语音发音 (TTS)</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-1.5 font-black text-xs text-gray-900">
+                <Volume2 className="w-4 h-4 text-pink-500" />
+                <span>萌系伴读发音风格</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  playPop();
+                  speak("Hello friend! Let's read together!", {
+                    pitch: readerSettings.speechPitch,
+                    rate: readerSettings.speechRate,
+                    tone: readerSettings.voiceTone,
+                    voiceURI: readerSettings.selectedVoiceURI,
+                  });
+                }}
+                className="px-2.5 py-1 rounded-xl bg-pink-100 hover:bg-pink-200 text-pink-700 font-extrabold text-[11px] flex items-center gap-1 transition-colors active:scale-95 shadow-2xs"
+              >
+                <span>🔊 试听发音</span>
+              </button>
+            </div>
+
+            {/* Cute Voice Tone presets */}
+            <div>
+              <label className="block text-xs font-bold text-gray-500 mb-1.5">
+                发音音色预设
+              </label>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                {[
+                  { id: 'child', label: '🧸 萌萌童声', pitch: 1.35, rate: 0.95 },
+                  { id: 'sweet', label: '🌸 甜美姐姐', pitch: 1.18, rate: 0.88 },
+                  { id: 'fairy', label: '🧚‍♀️ 魔法精灵', pitch: 1.55, rate: 1.0 },
+                  { id: 'standard', label: '🌟 标准清晰', pitch: 1.05, rate: 0.9 },
+                ].map((t) => {
+                  const isSelected = readerSettings.voiceTone === t.id;
+                  return (
+                    <button
+                      key={t.id}
+                      type="button"
+                      onClick={() => {
+                        playPop();
+                        updateSettings({
+                          voiceTone: t.id as any,
+                          speechPitch: t.pitch,
+                          speechRate: t.rate,
+                        });
+                        speak('Super cute!', {
+                          pitch: t.pitch,
+                          rate: t.rate,
+                          tone: t.id as any,
+                          voiceURI: readerSettings.selectedVoiceURI,
+                        });
+                      }}
+                      className={`p-2 rounded-xl text-xs font-black transition-all text-center ${
+                        isSelected
+                          ? 'bg-pink-500 text-white shadow-xs'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      {t.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* System Voice dropdown if multiple voices available */}
+            {voices.length > 1 && (
+              <div>
+                <label className="block text-xs font-bold text-gray-500 mb-1">
+                  发音人声音源
+                </label>
+                <select
+                  value={readerSettings.selectedVoiceURI || ''}
+                  onChange={(e) =>
+                    updateSettings({ selectedVoiceURI: e.target.value || undefined })
+                  }
+                  className="w-full text-xs font-bold p-2 rounded-xl border border-gray-200 bg-white text-gray-700 focus:border-pink-500 outline-none"
+                >
+                  <option value="">默认可爱女声 (推荐)</option>
+                  {voices.map((v) => (
+                    <option key={v.voiceURI} value={v.voiceURI}>
+                      {v.name} ({v.lang})
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            {/* Pitch fine slider */}
+            <div>
+              <div className="flex items-center justify-between text-xs font-bold text-gray-500 mb-1">
+                <span>萌度音调 (Pitch)</span>
+                <span className="font-black text-pink-600">
+                  {readerSettings.speechPitch.toFixed(2)}x
+                </span>
+              </div>
+              <input
+                type="range"
+                min={0.8}
+                max={1.8}
+                step={0.05}
+                value={readerSettings.speechPitch}
+                onChange={(e) =>
+                  updateSettings({ speechPitch: parseFloat(e.target.value) })
+                }
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-pink-500"
+              />
+              <div className="flex justify-between text-[10px] text-gray-400 mt-0.5">
+                <span>深沉 (0.8x)</span>
+                <span>童趣甜美 (1.35x)</span>
+                <span>精灵高音 (1.8x)</span>
+              </div>
+            </div>
+
+            {/* Speech Rate */}
+            <div>
+              <div className="flex items-center justify-between text-xs font-bold text-gray-500 mb-1">
+                <span>发音语速</span>
+                <span className="font-black text-pink-600">
+                  {readerSettings.speechRate}x
+                </span>
+              </div>
+              <input
+                type="range"
+                min={0.6}
+                max={1.2}
+                step={0.05}
+                value={readerSettings.speechRate}
+                onChange={(e) =>
+                  updateSettings({ speechRate: parseFloat(e.target.value) })
+                }
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-pink-500"
+              />
             </div>
 
             {/* Auto Pronounce On Pause */}
@@ -237,24 +370,23 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               />
             </div>
 
-            {/* Speech Rate */}
-            <div>
-              <div className="flex items-center justify-between text-xs font-bold text-gray-500 mb-1">
-                <span>朗读语速</span>
-                <span className="font-black text-pink-600">
-                  {readerSettings.speechRate}x
-                </span>
+            {/* Continuous Ticking Sound toggle */}
+            <div className="flex items-center justify-between p-3 rounded-2xl bg-gray-50">
+              <div>
+                <p className="text-xs font-black text-gray-800">
+                  速读时逐词木琴滴答声
+                </p>
+                <p className="text-[11px] text-gray-400">
+                  默认关闭，避免速读时连续发声吵闹
+                </p>
               </div>
               <input
-                type="range"
-                min={0.6}
-                max={1.2}
-                step={0.1}
-                value={readerSettings.speechRate}
+                type="checkbox"
+                checked={readerSettings.tickSoundEnabled}
                 onChange={(e) =>
-                  updateSettings({ speechRate: parseFloat(e.target.value) })
+                  updateSettings({ tickSoundEnabled: e.target.checked })
                 }
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-pink-500"
+                className="w-5 h-5 accent-pink-500 cursor-pointer"
               />
             </div>
           </div>

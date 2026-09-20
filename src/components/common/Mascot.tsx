@@ -15,10 +15,10 @@ export const Mascot: React.FC<MascotProps> = ({
   className = '',
 }) => {
   const [isWiggling, setIsWiggling] = useState(false);
-  const { playPop } = useSoundEffects();
+  const { playMascotGiggle } = useSoundEffects();
 
   const handleTap = () => {
-    playPop();
+    playMascotGiggle();
     setIsWiggling(true);
     setTimeout(() => setIsWiggling(false), 600);
   };

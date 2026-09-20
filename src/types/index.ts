@@ -19,6 +19,8 @@ export interface WordLibrary {
   words: WordItem[];
 }
 
+export type VoiceTone = 'child' | 'sweet' | 'fairy' | 'standard';
+
 export interface ReaderSettings {
   wpm: number; // 60 to 450
   chunkSize: number; // 1 or 2
@@ -29,8 +31,12 @@ export interface ReaderSettings {
   autoPronounceOnPause: boolean;
   autoPronounceEveryWord: boolean;
   soundEffectsEnabled: boolean;
+  tickSoundEnabled: boolean;
   showTranslation: boolean;
   speechRate: number; // 0.7 to 1.3
+  speechPitch: number; // 0.8 to 1.8
+  voiceTone: VoiceTone;
+  selectedVoiceURI?: string;
 }
 
 export interface ORPResult {
