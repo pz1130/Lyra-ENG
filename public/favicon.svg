@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Rounded Background -->
+  <rect width="100" height="100" rx="28" fill="#FF7597"/>
+  <rect x="5" y="5" width="90" height="90" rx="24" fill="#FFA5BA" fill-opacity="0.3"/>
+  
+  <!-- Star sparkles -->
+  <path d="M80 20L82 25L87 27L82 29L80 34L78 29L73 27L78 25Z" fill="#FFF490"/>
+  <path d="M22 68L23.5 71.5L27 73L23.5 74.5L22 78L20.5 74.5L17 73L20.5 71.5Z" fill="#FFF490"/>
+  
+  <!-- Cute Bunny Face -->
+  <!-- Ears -->
+  <ellipse cx="38" cy="32" rx="7" ry="18" fill="#FFFFFF" transform="rotate(-10 38 32)"/>
+  <ellipse cx="38" cy="33" rx="4" ry="13" fill="#FFB6C1" transform="rotate(-10 38 33)"/>
+  <ellipse cx="62" cy="32" rx="7" ry="18" fill="#FFFFFF" transform="rotate(10 62 32)"/>
+  <ellipse cx="62" cy="33" rx="4" ry="13" fill="#FFB6C1" transform="rotate(10 62 33)"/>
+  
+  <!-- Face -->
+  <ellipse cx="50" cy="56" rx="25" ry="22" fill="#FFFFFF"/>
+  <!-- Cheeks -->
+  <ellipse cx="34" cy="62" rx="4" ry="2.5" fill="#FFA0B4"/>
+  <ellipse cx="66" cy="62" rx="4" ry="2.5" fill="#FFA0B4"/>
+  <!-- Eyes -->
+  <ellipse cx="40" cy="53" rx="2.5" ry="3.5" fill="#3D2930"/>
+  <circle cx="39" cy="51.5" r="1" fill="#FFFFFF"/>
+  <ellipse cx="60" cy="53" rx="2.5" ry="3.5" fill="#3D2930"/>
+  <circle cx="59" cy="51.5" r="1" fill="#FFFFFF"/>
+  <!-- Nose & Mouth -->
+  <polygon points="50,57 47.5,55 52.5,55" fill="#FF7597"/>
+  <path d="M47 60 Q50 62.5 50 60 Q50 62.5 53 60" stroke="#3D2930" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  
+  <!-- Reading Glasses -->
+  <circle cx="40" cy="53" r="7" stroke="#FF5480" stroke-width="2" fill="none"/>
+  <circle cx="60" cy="53" r="7" stroke="#FF5480" stroke-width="2" fill="none"/>
+  <path d="M47 53 L53 53" stroke="#FF5480" stroke-width="2"/>
+  
+  <!-- Book at bottom -->
+  <path d="M28 78 C38 74 48 76 50 78 C52 76 62 74 72 78 L70 88 C60 84 52 86 50 87 C48 86 40 84 30 88 Z" fill="#FFE58F"/>
+  <path d="M50 78 L50 87" stroke="#E0C060" stroke-width="1.5"/>
+</svg>

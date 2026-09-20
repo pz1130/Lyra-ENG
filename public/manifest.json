@@ -1,0 +1,18 @@
+{
+  "name": "萌萌速读 - Lyra Reader",
+  "short_name": "萌萌速读",
+  "description": "专为儿童与青少儿英语学习设计的 RSVP 视觉速读与词汇进阶工具",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF5F7",
+  "theme_color": "#FF8EAC",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
