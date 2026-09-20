@@ -15,6 +15,13 @@ const STORAGE_KEY = 'lyra_reader_theme';
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [currentThemeId, setCurrentThemeId] = useState<ThemeId>(() => {
     try {
+      if (typeof window !== 'undefined') {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlTheme = urlParams.get('theme');
+        if (urlTheme && urlTheme in THEMES) {
+          return urlTheme as ThemeId;
+        }
+      }
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved && saved in THEMES) {
         return saved as ThemeId;

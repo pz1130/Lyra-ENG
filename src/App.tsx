@@ -22,7 +22,13 @@ export const App: React.FC = () => {
   const { speak } = useSpeechSynthesis();
 
   // Modals state
-  const [isThemeModalOpen, setIsThemeModalOpen] = useState(false);
+  const [isThemeModalOpen, setIsThemeModalOpen] = useState(() => {
+    try {
+      return typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('modal') === 'theme';
+    } catch {
+      return false;
+    }
+  });
   const [isLibraryDrawerOpen, setIsLibraryDrawerOpen] = useState(false);
   const [isImportModalOpen, setIsImportModalOpen] = useState(false);
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);

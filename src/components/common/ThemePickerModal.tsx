@@ -3,6 +3,7 @@ import { Check, Sparkles, X } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { useSoundEffects } from '../../hooks/useSoundEffects';
 import { ThemeId } from '../../types/theme';
+import { Mascot } from './Mascot';
 
 interface ThemePickerModalProps {
   isOpen: boolean;
@@ -74,15 +75,24 @@ export const ThemePickerModal: React.FC<ThemePickerModalProps> = ({
                   </div>
                 )}
 
-                <div className="flex items-center gap-2.5 mb-2">
-                  <span className="text-3xl p-1.5 rounded-xl bg-white shadow-sm border border-gray-100">
-                    {t.emoji}
-                  </span>
-                  <div>
-                    <h3 className="font-extrabold text-base text-gray-800">
-                      {t.name}
-                    </h3>
-                    <p className="text-[11px] font-semibold text-gray-500">
+                <div className="flex items-center gap-3 mb-2 w-full">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-2xl bg-white/90 shadow-sm border border-gray-100 flex items-center justify-center p-1 overflow-hidden">
+                    <Mascot
+                      type={t.mascotType}
+                      name={t.mascotName}
+                      state="idle"
+                      showTag={false}
+                      className="pointer-events-none scale-90"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-base">{t.emoji}</span>
+                      <h3 className="font-extrabold text-base text-gray-800 truncate">
+                        {t.name}
+                      </h3>
+                    </div>
+                    <p className="text-[11px] font-semibold text-gray-500 truncate">
                       伴读：{t.mascotName}
                     </p>
                   </div>
