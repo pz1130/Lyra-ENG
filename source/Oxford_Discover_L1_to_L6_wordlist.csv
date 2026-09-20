@@ -1,0 +1,1770 @@
+level,unit,word,translation
+1,1,mother,母亲
+1,1,father,父亲
+1,1,brother,兄
+1,1,sister,姐妹
+1,1,grandmother,祖母
+1,1,grandfather,祖父
+1,1,family,家（庭）
+1,1,friend,朋友
+1,1,uncle,叔叔
+1,1,aunt,姑妈
+1,1,cousin,堂（表）兄弟
+1,1,parents,父母
+1,1,daughter,女儿
+1,1,son,儿子
+2,1,skin,皮
+2,1,mammals,哺乳类
+2,1,eggs,卵( egg的名词复数 )
+2,1,amphibians,两栖动物( amphibian的名词复数 )
+2,1,scales,刻度( scale的名词复数 )
+2,1,gills,鳃( gill的名词复数 )
+2,1,feathers,羽毛( feather的名词复数 )
+2,1,wings,飞行章
+2,1,fur,软毛
+2,1,head,头
+2,1,eye,眼睛
+2,1,ear,耳朵
+2,1,mouth,嘴
+2,1,leg,腿
+2,1,body,身体
+3,1,festival,会演
+3,1,folk dance,民间舞蹈
+3,1,wedding,婚礼
+3,1,family,家（庭）
+3,1,reunion,重聚
+3,1,fair,公平的
+3,1,race,赛跑
+3,1,team,队
+3,1,winner,获胜者
+3,1,score,得分
+3,1,player,运动员
+3,1,envelopes,信封( envelope的名词复数 )
+3,1,championship,锦标赛
+3,1,athletes,运动员
+3,1,bands,乐队
+1,2,elephant,象
+1,2,tortoise,龟
+1,2,lonely,孤独的
+1,2,sad,悲哀的
+1,2,scared,恐惧的
+1,2,eat,吃（饭）
+1,2,play,玩
+1,2,sleep,睡眠
+1,2,hamster,<动>仓鼠
+1,2,goldfish,金鱼
+1,2,bird,小鸟
+1,2,rabbit,兔子
+1,2,lizard,蜥蜴
+1,2,kitten,小猫
+1,2,There is ... / There are,有.../有
+2,2,worm,蠕虫
+2,2,berries,浆果( berry的名词复数 )
+2,2,hunt,搜寻
+2,2,escape,逃跑
+2,2,creep,讨厌鬼
+2,2,fight,斗争
+2,2,peck,啄
+2,2,pinecone,松球
+2,2,squawk,发出响而粗的叫声
+2,2,strong,强的
+2,2,gentle,文静的
+2,2,patient,病人
+2,2,smart,聪明的
+2,2,calm,镇静的
+2,2,fierce,凶猛的
+2,2,Adverbs of Frequency,频率副词：表示动作发生频率的副词
+3,2,kick,踢
+3,2,tag,标签
+3,2,skip,蹦蹦跳跳地走
+3,2,bounce,弹跳
+3,2,drop,滴
+3,2,plain,平原
+3,2,lake,湖
+3,2,canyon,峡谷
+3,2,cliff,悬崖
+3,2,stream,小溪
+3,2,boa constrictor,蟒蛇
+3,2,toss,掷硬币决定
+3,2,landing,登陆
+3,2,balance,均衡
+1,3,yellow,黄（色）
+1,3,red,红色
+1,3,blue,蓝色
+1,3,green,绿色蔬菜
+1,3,purple,紫色
+1,3,black,黑的
+1,3,brown,棕色
+1,3,white,白色
+1,3,fireworks,烟火表演
+1,3,dark,黑暗
+1,3,light,光
+1,3,gray,灰色的
+1,3,orange,橙
+1,3,pink,粉红色
+1,3,There is ... / There are,有.../有
+2,3,flow,流动
+2,3,solid,固体
+2,3,liquid,液体
+2,3,gas,气体
+2,3,heat,热
+2,3,stream,小溪
+2,3,ice,冰
+2,3,freeze,结冰
+2,3,melt,奶酪三明治
+2,3,ice pop,冰棒：一种冷冻果汁制成的小吃
+2,3,balloon,气球
+2,3,kettle,水壶
+2,3,popcorn,爆米花
+2,3,icicle,冰柱
+2,3,candle,[轻]蜡烛
+3,3,packing,包装
+3,3,moving,移动的
+3,3,meeting,会议
+3,3,neighbors,<美>邻居
+3,3,shopping,购物
+3,3,ice skating,冰上滑冰：在冰上滑冰的行为或运动。
+3,3,fishing,钓鱼
+3,3,raking leaves,耙树叶：用耙子将落在地上的树叶聚集在一起的行为
+3,3,dancing,舞蹈
+3,3,throwing snowballs,投掷雪球
+3,3,sledding,雪橇的使用
+3,3,monsoon,季风
+3,3,surgeon,外科医生
+3,3,curry,咖喱食品
+3,3,classmate,同班同学
+1,4,mix,混合
+1,4,mural,壁画
+1,4,ocean,<美>海洋
+1,4,sand,沙
+1,4,seaweed,[植]海草
+1,4,seashell,海中软体动物的壳
+1,4,jellyfish,水母
+1,4,starfish,海星（一种海洋动物）
+1,4,jacket,短上衣
+1,4,shorts,短裤
+1,4,sneakers,旅游鞋
+1,4,T-shirt,T 恤衫
+1,4,hat,帽子
+1,4,pants,<美> 裤子
+1,4,Prepositions of Place: In,prepositions of place: in
+1,4,On,上
+1,4,Under,下面的
+1,4,Next To,紧挨着、靠近、在……旁边
+2,4,cream,奶油
+2,4,sugar,食糖
+2,4,salt,盐
+2,4,pour,倾倒
+2,4,plastic,塑料
+2,4,bags,袋( bag的名词复数 )
+2,4,mixture,混合
+2,4,open,户外
+2,4,closed,封闭
+2,4,freezer,冰箱
+2,4,coffee,咖啡
+2,4,tea,茶水
+2,4,salad,沙拉
+2,4,fruit,成果
+2,4,vegetables,蔬菜( vegetable的名词复数 )
+2,4,pasta,面团（用以制意大利通心粉
+2,4,Simple Past of Verb To Be,be动词一般过去时
+3,4,country,国家
+3,4,suburb,郊区
+3,4,rural area,[农] 农村地区
+3,4,urban,城市的
+3,4,area,地区
+3,4,shopping mall,大型购物中心
+3,4,university,综合性大学
+3,4,hospital,医院
+3,4,factory,工厂
+3,4,clinic,诊所
+3,4,zoo,动物园
+3,4,belongings,所有物
+3,4,immigrant,移民
+3,4,move,行动
+3,4,abroad,在/去国外
+3,4,experiences,经历( experience的名词复数 )
+1,5,eagle,鹰
+1,5,chick,雏鸟
+1,5,nest,巢
+1,5,opossum,尾有卷握力的小有袋动物
+1,5,treehollow,树洞：树洞是指树木上出现的半开放孔穴。主要存在于树龄较大的树木之上
+1,5,honeybee,[蜂] 蜜蜂
+1,5,hive,忙碌的场所
+1,5,crab,蟹
+1,5,woods,树林
+1,5,field,田地
+1,5,pond,池塘
+1,5,squirrel,松鼠
+1,5,mouse,老鼠
+1,5,frog,青蛙
+1,5,Where Questions with Verb Be,其中带有动词的问题是
+2,5,travel,旅行
+2,5,communication,表达
+2,5,airplane,飞机
+2,5,news,消息
+2,5,letter,信
+2,5,text message,正文消息
+2,5,e-mail,电子邮件
+2,5,radio,无线电
+2,5,Internet,互联网
+2,5,boat,船
+2,5,bus,公共汽车
+2,5,motorcycle,摩托车
+2,5,cable car,<美>（电）缆车
+2,5,truck,卡车
+2,5,horse,马
+3,5,ladybug,瓢虫
+3,5,cricket,蟋蟀
+3,5,grasshopper,蚱蜢
+3,5,beetle,甲虫
+3,5,katydid,纺织娘
+3,5,butterfly,蝴蝶
+3,5,thicket,灌木丛
+3,5,kangaroo,[动]袋鼠
+3,5,raisin,葡萄干
+3,5,insect,昆虫
+3,5,escaped,溜走
+3,5,shooting star,流星
+3,5,leaping,跳跃
+1,6,orangutan,猩猩
+1,6,rainforest,雨林
+1,6,reserve,储备
+1,6,teach,教授
+1,6,take care of,照顾
+1,6,miss,女士
+1,6,take a nap,小睡一下
+1,6,put out,生产
+1,6,day,一天
+1,6,night,夜间
+1,6,morning,早晨
+1,6,midday,中午
+1,6,afternoon,下午
+1,6,evening,傍晚
+1,6,What and Who Questions with Verb Be,动词be是什么和谁的问题
+2,6,arrive,到达
+2,6,ask,询问
+2,6,check,检查
+2,6,enter,进入
+2,6,poor,the poor 贫困者
+2,6,crowded,拥挤的
+2,6,clerk,办事员
+2,6,visit,看望
+2,6,sick,<口>呕吐物
+2,6,couch,长沙发
+2,6,chair,椅子
+2,6,lamp,灯
+2,6,clock,钟
+2,6,bathtub,浴缸
+2,6,sink,洗涤池
+2,6,Simple Past Regular Verbs,简单的过去正则动词
+3,6,sentence,句子
+3,6,rhyming words,押韵词：与另一个词在音韵上相似或相同的词语。通常用于诗歌、歌曲或儿童游戏中。
+3,6,verb,动词
+3,6,noun,名词
+3,6,adjective,形容词
+3,6,syllable,音节
+3,6,letter,信
+3,6,robin,知更鸟
+3,6,angelfish,扁鲨
+3,6,snowflakes,雪花
+3,6,observe,观察
+3,6,imagine,想象
+3,6,describe,描述
+3,6,exact,确切的
+1,7,warm,暖和的地方
+1,7,hot,热的
+1,7,cool,凉的
+1,7,cold,寒冷的
+1,7,rain,雨
+1,7,snow,雪
+1,7,long,长的
+1,7,short,短裤
+1,7,weather,天气（预报）
+1,7,cloudy,多云的
+1,7,sunny,阳光充足的
+1,7,windy,多风的
+1,7,snowy,下雪的
+1,7,rainy,下雨的
+1,7,Simple Present with It,简单的存在与它
+2,7,minus sign,减号：在数学中表示减法（如8-6=2）或负数（如-10°）的符号。
+2,7,subtraction,减
+2,7,take away,供应外带的
+2,7,column,专栏
+2,7,row,一排/列/行
+2,7,test score,测验分数
+2,7,single-digit number,个位数：一个只有一位数字的数
+2,7,double-,跑步
+2,7,digit number,位数：指一个数字所包含的数字个数。
+2,7,left,左
+2,7,clean,打扫
+2,7,dirty,脏的
+2,7,tired,累的
+2,7,hungry,饥饿的
+2,7,thirsty,口渴的
+2,7,full,满的
+3,7,second,秒
+3,7,minute,分（钟）
+3,7,hour,小时
+3,7,month,月
+3,7,year,年
+3,7,noon,正午
+3,7,spin,高速旋转
+3,7,orbit,轨道
+3,7,time zone,时区
+3,7,multiply,乘
+3,7,axis,轴线
+3,7,planet,行星
+3,7,accurate,准确的
+3,7,opposite,对立物
+1,8,watch,看
+1,8,build a snowman,堆雪人：在雪地中用雪堆出一个人形的雕塑物
+1,8,build a,起火
+1,8,tree house,树上小屋
+1,8,make a swing,单人床：一种适合单人使用的床
+1,8,make apple pie,苹果派
+1,8,grow,长大
+1,8,fall,落下
+1,8,bring,带来
+1,8,ride a bicycle,骑自行车：使用脚蹬和把手控制自行车的运动
+1,8,go to the beach,去海滩：前往海滩休闲娱乐或进行水上活动。
+1,8,eat ice cream,吃冰淇淋：享用一种由冰淇淋制成的甜点
+1,8,drink hot chocolate,喝热巧克力：将巧克力加热溶解后饮用的一种饮品。
+1,8,fly a kite,试探舆论
+1,8,plant,植物
+1,8,flowers,[植]花（flower 的复数）
+1,8,Simple Present with I and You,我和你的简单礼物
+2,8,let go,放开
+2,8,steal,偷窃
+2,8,dig up,发现
+2,8,hide,隐蔽处
+2,8,jar,罐子
+2,8,greedy,贪吃的
+2,8,bored,感到厌倦的
+2,8,baker,面包师
+2,8,cook,厨师
+2,8,knee,膝盖
+2,8,nose,鼻子
+2,8,foot,脚
+2,8,arm,臂
+2,8,face,脸（面）
+2,8,hand,手
+2,8,Simple Past Irregular Verbs,简单的过去不规则动词
+3,8,airport,机场
+3,8,passenger,乘客
+3,8,passport,护照
+3,8,destination,目的地
+3,8,sick,<口>呕吐物
+3,8,earache,耳朵痛
+3,8,headache,头痛
+3,8,fever,发烧
+3,8,doctor,医生
+3,8,medicine,医学
+3,8,washcloth,<美>洗脸巾
+3,8,forehead,额
+3,8,sneezing,打喷嚏
+3,8,tissues,组织( tissue的名词复数 )
+1,9,numbers,[数] 数字（number的复数）
+1,9,plus sign,加号
+1,9,problem,问题
+1,9,addition,加法
+1,9,answer,回答
+1,9,odd numbers,奇数：指不能被2整除的整数。
+1,9,even numbers,双数
+1,9,pen,笔
+1,9,pencil,铅笔
+1,9,eraser,橡皮擦
+1,9,ruler,尺
+1,9,backpack,背包
+1,9,notebook,笔记簿
+1,9,Simple Present with Verb Have ( I,简单存在
+1,9,You,你
+1,9,We,我们
+1,9,They ),他们
+2,9,traffic light,红绿灯
+2,9,take turns,替换
+2,9,polite,有礼貌的
+2,9,clean,打扫
+2,9,up,向上
+2,9,litter,废弃物
+2,9,librarian,图书馆馆长
+2,9,crossing guard,过街警卫：一位帮助人们（如学童）安全穿过繁忙街道的工作人员。
+2,9,principal,最重要的
+2,9,lifeguard,救生员
+2,9,kitchen,厨房
+2,9,living room,客厅：住宅中用于居住者共同社交活动的房间。
+2,9,cafeteria,自助餐厅
+2,9,classroom,教室
+2,9,swimming pool,游泳池
+2,9,crosswalk,人行横道
+3,9,windmill,风车房
+3,9,sailboat,帆船
+3,9,wind turbine,风力涡轮机：一种利用风力发电的涡轮机。
+3,9,wind farm,风力田
+3,9,coal,煤（块）
+3,9,oil,油
+3,9,natural gas,天然气
+3,9,pollution,污染
+3,9,power plant,发电厂
+3,9,electricity,电
+3,9,source,来源
+3,9,fossil fuels,[能源] 化石燃料
+3,9,nonrenewable,不可再生的
+3,9,renewable,可再生资源
+1,10,pot,罐
+1,10,stone,石头
+1,10,food,食物
+1,10,sausages,腊肠
+1,10,carrots,胡萝卜( carrot的名词复数 )
+1,10,onions,洋葱（头）（ onion的名词复数 ）
+1,10,potatoes,[作物]土豆（potato 的复数形式）
+1,10,soup,汤
+1,10,tomato,番茄
+1,10,cucumber,黄瓜
+1,10,avocado,鳄梨
+1,10,orange,橙
+1,10,mango,芒果
+1,10,peach,桃子
+1,10,Simple Present Questions with Verb Have ( I,带有动词的简单当前问题有(i
+1,10,You,你
+1,10,We,我们
+1,10,They ),他们
+2,10,knock,敲
+2,10,thoughtful,沉思的
+2,10,rude,粗鲁的
+2,10,grab,攫取
+2,10,pass,合格
+2,10,put away,收起来
+2,10,invite,请柬
+2,10,wash,清洗
+2,10,share,分享
+2,10,computer,计算机
+2,10,laptop,便携式电脑
+2,10,camera,照相机
+2,10,headphones,[电讯]耳机
+2,10,tablet,药片
+2,10,cell phone,手机：一种便携式的通常无线的电话
+2,10,Can and May,可以而且可以
+3,10,subway,地铁
+3,10,fire engine,消防车
+3,10,carpool,合伙使用汽车
+3,10,ambulance,救护车
+3,10,escalator,自动扶梯
+3,10,train,火车
+3,10,taxi,出租车
+3,10,elevator,电梯
+3,10,helicopter,直升机
+3,10,traffic jam,交通堵塞
+3,10,mask,面具
+3,10,button,纽扣
+3,10,pedal,踏板
+3,10,blades,刀口( blade的名词复数 )
+1,11,farmer,农民
+1,11,cow,奶牛
+1,11,milk,奶
+1,11,market,集市
+1,11,sell,销售
+1,11,buy,划算的东西
+1,11,plain,平原
+1,11,fancy,想象
+1,11,games,游戏
+1,11,comic book,连环漫画册
+1,11,board game,用棋盘玩的游戏
+1,11,doll,洋娃娃
+1,11,stickers,有背胶的标签( sticker的名词复数 )
+1,11,pins,插脚
+1,11,Simple Present with Regular Verbs and Verb Have ( He,带有规则动词和动词的简单存在（他
+1,11,She ),床单
+2,11,resources,勇气
+2,11,wood,木材
+2,11,landfill,废物填埋
+2,11,land,陆地
+2,11,trash,垃圾
+2,11,smoke,烟
+2,11,sunlight,阳光
+2,11,reduce,减少
+2,11,reuse,再用
+2,11,camp,营地
+2,11,hike,徒步旅行
+2,11,ride a horse,骑马
+2,11,surf,海浪
+2,11,fish,鱼（肉）
+2,11,ski,滑雪
+3,11,cello,大提琴
+3,11,timpani,定音鼓
+3,11,trombone,长号
+3,11,bassoon,低音管
+3,11,orchestra,管弦乐队
+3,11,conductor,指挥
+3,11,baton,警棍
+3,11,astronaut,宇航员
+3,11,circus trainer,马戏团教练
+3,11,scientist,科学家
+3,11,mystery,难以理解（或解释）的事物
+3,11,gym,<非正>健身房
+3,11,deafening,震耳欲聋的
+3,11,beekeeper,养蜂人
+1,12,job,工作
+1,12,doctor,医生
+1,12,police officer,警察
+1,12,teacher,老师
+1,12,help,帮助
+1,12,money,钱
+1,12,clothes,衣服
+1,12,water,水
+1,12,sandwich,三明治
+1,12,grapes,葡萄( grape的名词复数 )
+1,12,juice,果汁
+1,12,cookie,曲奇饼
+1,12,chips,[食品]炸土豆条
+1,12,soda,苏打
+1,12,Simple Present Questions with Regular Verbs and Verb,具有常规动词和动词的简单当前问题
+1,12,Have ( He,心脏病发作
+1,12,She ),床单
+2,12,carton,塑料盒
+2,12,diary,日记
+2,12,paper,纸
+2,12,blow,刮
+2,12,shelf,架子
+2,12,recycling plant,回收处理厂：一种专门用于回收和处理废弃物的工厂
+2,12,machine,机器
+2,12,stationery store,文具店
+2,12,rescue,营救（行动）
+2,12,time,时间
+2,12,week,周
+2,12,nine o'clock,[体]航向左方
+2,12,nine-,上班时间朝九晚五的
+2,12,fifteen,十五
+2,12,nine-thirty,九点三十
+2,12,nine forty-five,九四五
+2,12,Prepositions of Place,位置介词：表示物体位置的介词
+3,12,zummara,阿拉伯乐器
+3,12,flute,长笛
+3,12,djembe,非洲手鼓
+3,12,tuba,大号
+3,12,panpipes,排箫
+3,12,violin,小提琴
+3,12,didgeridoo,迪吉里杜管（澳洲土著人的乐器）
+3,12,snare drum,陷阱鼓：一种小型的双面鼓
+3,12,erhu,二胡（中国传统乐器）
+3,12,clarinet,单簧管
+3,12,traditional,传统的
+3,12,vibrate,振动[颤动]
+3,12,material,布料
+3,12,pitch,<英>体育场地
+1,13,street,大街
+1,13,neighborhood,附近
+1,13,town,城镇
+1,13,city,城市
+1,13,the country,社稷
+1,13,apartment,公寓套房
+1,13,building,建筑（物）
+1,13,world,世界
+1,13,noisy,嘈杂的
+1,13,quiet,宁静
+1,13,safe,保险柜
+1,13,dangerous,危险的
+1,13,boring,令人厌烦的
+1,13,interesting,有趣的
+1,13,Possessive 's,所有格形容词：表示所有关系的代词形容词
+2,13,high,最高点
+2,13,low,低点
+2,13,excited,激动的
+2,13,sleepy,困倦的
+2,13,wolf,狼
+2,13,feelings,感情
+2,13,right,右边
+2,13,wrong,错误的
+2,13,trumpet,小号
+2,13,proud,骄傲的
+2,13,smile,微笑
+2,13,nervous,神经紧张的
+2,13,yawn,哈欠
+2,13,unhappy,不快乐的
+2,13,cry,哭
+3,13,lever,操纵杆
+3,13,ramp,斜坡
+3,13,wedge,楔子
+3,13,screw,螺丝钉
+3,13,wheel,轮子
+3,13,and axle,和车轴
+3,13,light bulb,灯泡：一个圆形的玻璃容器
+3,13,doorknob,球形门拉手
+3,13,slide,滑行
+3,13,axe,斧
+3,13,seesaw,跷跷板
+3,13,hammers,锤( hammer的名词复数 )
+3,13,board,木板/黑板
+3,13,wheelchairs,轮椅( wheelchair的名词复数 )
+3,13,jar,罐子
+3,13,lids,盖( lid的名词复数 )
+1,14,department store,百货公司
+1,14,restaurant,餐馆
+1,14,movie theater,电影院
+1,14,hotel,旅馆/酒店
+1,14,cornfield,<美>玉米田
+1,14,orchard,果园
+1,14,new,新的
+1,14,old,岁
+1,14,park,公园
+1,14,library,图书馆
+1,14,supermarket,超级市场
+1,14,drugstore,药房（兼售化妆品等）
+1,14,bakery,面包店
+1,14,museum,博物馆
+1,14,Possessive Adjectives,所有格形容词：一种形容词
+2,14,notes,注释
+2,14,wait,等候
+2,14,worried,担心的
+2,14,the flu,流感
+2,14,tears,眼泪( tear的名词复数 )
+2,14,solo,独唱（曲）
+2,14,hummingbird,蜂鸟
+2,14,record,记录
+2,14,musician,音乐家
+2,14,have lunch,吃午餐：在中午时间进食。
+2,14,give a concert,举行音乐会
+2,14,make,制造
+2,14,mistake,错误
+2,14,sign an autograph,签名
+2,14,talk to fans,与粉丝交流：与自己的粉丝进行交流
+2,14,do an interview,进行面试：与某人进行正式的问答交流
+2,14,Adverbs of Time,时间副词
+3,14,eyeglasses,眼镜（等于 glasses）
+3,14,vase,花瓶
+3,14,furnace,熔炉
+3,14,wire,金属丝
+3,14,workshop,车间
+3,14,frames,框架( frame的名词复数 )
+3,14,glass,玻璃
+3,14,glassblower,吹玻璃的人或机器
+3,14,glassware,玻璃器具类
+3,14,pitcher,投手
+3,14,delicate,脆弱的
+3,14,bumped,凸起的
+3,14,pounded,连续重击( pound的过去式和过去分词 )
+3,14,a,一（个）
+3,14,footsteps,脚步
+1,15,instruments,器具( instrument的名词复数 )
+1,15,cymbals,圆盘式张力装置
+1,15,tambourine,小手鼓
+1,15,xylophone,木琴
+1,15,drum,鼓
+1,15,triangle,三角形
+1,15,shake,摇动
+1,15,strike,罢工
+1,15,fast,禁食期
+1,15,slow,低速的
+1,15,loud,大声的
+1,15,soft,软的
+1,15,awful,令人讨厌的
+1,15,lovely,可爱的
+1,15,Present Continuous,现在进行式
+2,15,push,推
+2,15,pull,拉/拽
+2,15,movement,移动
+2,15,ground,地面
+2,15,throw,抛
+2,15,speed,速度
+2,15,heavy,彪形大汉
+2,15,light,光
+2,15,easy,容易的
+2,15,computer mouse,计算机鼠标：一种手持式指针设备
+2,15,stapler,订书机
+2,15,suitcase,手提箱
+2,15,broom,扫帚
+2,15,door,门
+2,15,desk drawer,办公桌抽屉：办公桌上的一种储物空间
+3,15,soil,泥土
+3,15,seeds,种子( seed的名词复数 )
+3,15,roots,[数][植]根
+3,15,stem,茎
+3,15,leaves,树叶
+3,15,petals,[植]花瓣
+3,15,nectar,花蜜
+3,15,pollen,花粉
+3,15,oxygen,氧（气）
+3,15,humans,人
+3,15,sprout,幼芽
+3,15,round,轮
+3,15,flat,公寓
+3,15,important,重要的
+1,16,dance,舞蹈（艺术）
+1,16,sing,耳鸣
+1,16,get an idea,得到一个想法：获得一个新的想法或概念。
+1,16,practice,常规
+1,16,an instrument,交流仪表系统
+1,16,buy tickets,购买门票：指购买入场券或门票以获得进入某个场所或参加某个活动的权利。
+1,16,give money,付出金钱
+1,16,clap,鼓掌
+1,16,take,场景
+1,16,pictures,<非正>（过时）电影院
+1,16,parade,检阅
+1,16,concert,音乐会
+1,16,ballet,芭蕾舞剧
+1,16,play,玩
+1,16,puppet show,木偶剧
+1,16,circus,马戏团
+1,16,Present Continuous Questions,提出连续问题
+2,16,stubborn,顽固的
+2,16,angry,愤怒的
+2,16,goat,山羊
+2,16,mountain,山
+2,16,west,西方
+2,16,east,东（方）
+2,16,forward,前锋
+2,16,horns,喇叭
+2,16,wet,湿的
+2,16,basketball,篮球（运动）
+2,16,soccer,英式足球
+2,16,tennis,网球
+2,16,baseball,棒球
+2,16,hockey,曲棍球
+2,16,golf,高尔夫球
+2,16,Superlative Adjectives,最高级形容词：在英语中
+3,16,gardener,园丁
+3,16,sweet potato,甘薯
+3,16,beans,豆( bean的名词复数 )
+3,16,vines,藤本植物
+3,16,garden,花园
+3,16,haze,烟雾
+3,16,teenagers,青少年（13至19岁
+3,16,community,社区
+3,16,crowd,人群
+3,16,shopping cart,购物车
+3,16,water,水
+3,16,curious,好奇的
+3,16,bloom,花
+3,16,empty,空的
+1,17,living,生活方式
+1,17,nonliving,无生命的
+1,17,breathe,呼吸
+1,17,move,行动
+1,17,change,变化
+1,17,air,大气
+1,17,people,人
+1,17,plant,植物
+1,17,bench,长凳
+1,17,bush,灌木丛
+1,17,statue,雕像
+1,17,grass,草
+1,17,rose,玫瑰
+1,17,fountain,人造喷泉
+1,17,Can and Can't,can and can 't
+2,17,crescent,新月形
+2,17,start,开始
+2,17,spiral,螺旋（线）
+2,17,oval,椭圆形
+2,17,straight,直线
+2,17,nature,大自然
+2,17,collage,拼贴画
+2,17,sculpture,雕刻作品
+2,17,pattern,模式
+2,17,photograph,照片
+2,17,origami,<日>折纸手工
+2,17,drawing,素描（画）
+2,17,mobile,活动的
+2,17,oil painting,油画
+2,17,mosaic,马赛克
+3,17,island,岛
+3,17,windy,多风的
+3,17,waterfall,瀑布
+3,17,clouds,云( cloud的名词复数 )
+3,17,hail,赞扬
+3,17,coast,海滨
+3,17,fog,雾
+3,17,lightning,闪电
+3,17,river,河
+3,17,healthy,健康的
+3,17,strait,海峡
+3,17,journey,旅行
+3,17,sail,帆
+1,18,run away,逃跑
+1,18,chase,追逐
+1,18,catch,接
+1,18,stop,停留
+1,18,cross,麻烦
+1,18,bake,烤菜
+1,18,smell,臭味
+1,18,open,户外
+1,18,go to bed,去睡觉
+1,18,play outside,在户外玩耍：指在室外进行各种娱乐活动
+1,18,early,早的
+1,18,late,晚期的
+1,18,healthy food,健康食品：指对人体有益的食品
+1,18,junk food,垃圾食品
+1,18,Should and Shouldn't,应该和不应该：should表示建议或推荐
+2,18,shiny,发光的
+2,18,fold,折叠
+2,18,edge,边线
+2,18,crane,鹤
+2,18,seal,印章
+2,18,crumple,弄皱
+2,18,waves,波( wave的名词复数 )
+2,18,climb,攀登
+2,18,golden,金制的
+2,18,markers,标记
+2,18,scissors,剪刀
+2,18,glue,胶水
+2,18,watercolors,水彩画
+2,18,chalk,粉笔
+2,18,colored pencils,彩色铅笔：一种带有蜡质彩色芯的铅笔
+2,18,Quantifiers,数量词
+3,18,goggles,护目镜
+3,18,kelp,[植]巨藻
+3,18,penguin,企鹅
+3,18,squid,乌贼
+3,18,otter,獭
+3,18,coral,珊瑚
+3,18,humpback whale,座头鲸：一种大型须鲸
+3,18,dolphin,海豚
+3,18,leafy sea dragon,叶海龙：一种生活在澳大利亚海域的海洋生物
+3,18,octopus,章鱼
+3,18,hose,水管
+3,18,tethered,用绳子拴住（牲畜）( tether的过去式和过去分词 )
+3,18,diver,潜水员
+3,18,freezing,在冰点以上/下
+4,1,moon,月亮
+4,1,asteroid,[天]小行星
+4,1,comet,彗星
+4,1,meteorite,陨石
+4,1,solar system,太阳系
+4,1,stars,星( star的名词复数 )
+4,1,galaxy,星系
+4,1,universe,宇宙
+4,1,spacecraft,[航天]宇宙飞船
+4,1,telescope,望远镜
+4,1,observatory,天文台
+4,1,vast,广阔的
+4,1,dwelled,居住
+4,1,speck,污点
+4,1,disk,磁盘
+5,1,dodo,渡渡鸟
+5,1,elephant bird,象鸟：一种已经灭绝的大型鸟类
+5,1,quagga,斑驴（产于南非）
+5,1,sea,海（洋）
+5,1,wolf,狼
+5,1,wooly mammoth,重毛皮猛犸象：一种曾经生活在北半球较冷地区的猛犸象
+5,1,extinct,灭绝的
+5,1,survive,活下来
+5,1,exploit,剥削
+5,1,endangered,濒危的
+5,1,habitat,生活环境
+5,1,species,物种
+5,1,sanctuary,避难所
+5,1,eventually,最终
+5,1,existed,存在( exist的过去式和过去分词 )
+5,1,mammals,哺乳类
+5,1,suffered,遭受
+5,1,atmosphere,大气
+5,1,rare,少见的
+6,1,isolated,隔离的
+6,1,hazardous,冒险的
+6,1,wriggle,蠕动
+6,1,skeptical,怀疑性的
+6,1,insist,坚持
+6,1,admire,钦佩
+6,1,labor,劳动
+6,1,strand,股
+6,1,discouraged,泄气的
+6,1,sapphire,蓝宝石
+6,1,suspicious,可疑的
+6,1,exquisite,精致的
+6,1,depart,离开
+6,1,herds,兽群( herd的名词复数 )
+6,1,fade,逐渐消失
+6,1,unseen,看不见的
+6,1,base,基础
+6,1,shone,发光
+6,1,gratefully,感激地
+4,2,astronomer,天文学家
+4,2,space probe,太空探测器：一种用于获取外太空信息并将其发送回地球的设备。
+4,2,core,核心
+4,2,gravity,重力
+4,2,orbit,轨道
+4,2,matter,事情
+4,2,distance,远处
+4,2,diameter,直径
+4,2,surface,表面
+4,2,craters,[地质]火山口
+4,2,unique,独一无二的
+4,2,bodies,身体
+4,2,explore,在…探险
+4,2,inner,里面的
+4,2,outer,外面的
+5,2,diverse,不同的
+5,2,identify,识别
+5,2,tracker,追踪者
+5,2,protect,保护
+5,2,naturalist,自然主义者
+5,2,poaching,水煮（荷包蛋）( poach的现在分词 )
+5,2,damaged,被损坏的
+5,2,conservation,保护
+5,2,preservation,保存
+5,2,inspire,激励
+5,2,population,人口
+5,2,reserve,储备
+5,2,jungles,丛林( jungle的名词复数 )
+5,2,wildlife,野生动植物
+5,2,hunter,猎人
+5,2,injuries,伤害
+5,2,mission,使命
+5,2,national park,国家公园
+6,2,varied,各种各样的
+6,2,beam,光线
+6,2,cable,电缆
+6,2,support,支持
+6,2,suspended,暂停的
+6,2,obstacle,障碍（物）
+6,2,span,持续时间
+6,2,overcome,克服
+6,2,situation,情况
+6,2,problematic,成问题的
+6,2,waterway,航道
+6,2,link,联系
+6,2,explosive,炸药
+6,2,factors,因素( factor的名词复数 )
+6,2,suspension,暂停
+6,2,stacks,大量( stack的名词复数 )
+6,2,aqueducts,沟渠( aqueduct的名词复数 )
+6,2,commonly,通常
+6,2,load bearing,承载
+4,3,army,陆军（部队）
+4,3,soldiers,士兵
+4,3,uniform,校服/制服
+4,3,emperor,皇帝
+4,3,armor,盔甲
+4,3,treasure,宝藏
+4,3,archaeologist,考古学家
+4,3,tomb,坟墓
+4,3,jade,玉
+4,3,clay,黏土
+4,3,peasant,农民
+4,3,battle,战役
+4,3,generals,将军
+4,3,vanish,突然不见
+4,3,coffin,棺材
+5,3,incisor,[解剖] 切牙
+5,3,canine,犬的
+5,3,molar,臼齿
+5,3,carnivore,食肉动物
+5,3,herbivore,[动] 食草动物
+5,3,omnivore,杂食动物
+5,3,slice,薄片
+5,3,grip,紧握
+5,3,crush,拥挤的人群
+5,3,cavity,洞
+5,3,gums,牙龈
+5,3,jaw,下巴
+5,3,detective,侦探
+5,3,dental,牙齿的
+5,3,gravity,重力
+5,3,filling,给人以满足感的
+5,3,treat,请客
+5,3,munch,大声咀嚼
+6,3,mass,一团
+6,3,crust,面包皮
+6,3,sphere,球（体）
+6,3,comprise,包括
+6,3,chamber,房间
+6,3,chunk,厚块
+6,3,geologist,地质学家
+6,3,collide,冲突
+6,3,pressure,压力
+6,3,gradually,逐渐地
+6,3,element,要素
+6,3,erode,侵蚀
+6,3,chemically,用化学
+6,3,mantle,地幔
+6,3,intense,强烈的
+6,3,erupt,喷发
+6,3,continental,大洲的
+6,3,sections,部分( section的名词复数 )
+6,3,enormous,巨大的
+4,4,dinosaur,恐龙
+4,4,skull,颅骨
+4,4,ravine,沟壑
+4,4,examine,仔细检查
+4,4,discover,发现
+4,4,excavate,发掘
+4,4,layers,层
+4,4,paleontologist,古生物学者
+4,4,ash,灰（烬）
+4,4,sedimentary rock,水成岩
+4,4,pastime,消遣
+4,4,favorite,最受喜爱的（等于favourite）
+4,4,dream,梦
+4,4,tripped,说话结结巴巴( trip的过去式和过去分词 )
+4,4,determine,查明
+5,4,fang,尖牙
+5,4,tusk,长牙
+5,4,venom,毒液
+5,4,shelter,遮蔽（物）
+5,4,dam,坝
+5,4,prey,猎物
+5,4,gnaw,咬
+5,4,pierce,刺穿
+5,4,fend off,挡开
+5,4,wear down,磨平
+5,4,lap up,将…卷叠起来
+5,4,create,创造
+5,4,powerful,有权力的
+5,4,intruders,未请自入者
+5,4,supply,供给量
+5,4,seal,印章
+5,4,toppling,不稳而倒下( topple的现在分词 )
+5,4,lodge,固定
+6,4,wheeze,喘息
+6,4,shower,淋浴间
+6,4,gravel,碎石
+6,4,flaming,燃烧的
+6,4,pumice,浮岩
+6,4,charred,烧焦的
+6,4,coughing,咳嗽
+6,4,flutter,紧张
+6,4,debris,残骸
+6,4,boulder,巨石
+6,4,spatter,泼
+6,4,boiling,沸腾的
+6,4,gasp,喘气
+6,4,scribe,抄写员
+6,4,observations,观察资料( observation的名词复数 )
+6,4,shifted,改变( shift的过去式和过去分词 )
+6,4,shore,岸
+6,4,deftly,熟练地
+6,4,retreat,撤回
+4,5,sugar cane,甘蔗：一种高大的多年生草本植物
+4,5,wheat,小麦
+4,5,cinnamon,樟属植物
+4,5,butter,黄油
+4,5,vanilla,香草精
+4,5,ingredients,组成部分（ ingredient的名词复数 ）
+4,5,bark,吠声
+4,5,plantation,种植园
+4,5,steamship,轮船
+4,5,spoil,破坏
+4,5,leopard,豹
+4,5,gather,聚集
+4,5,introduce,介绍
+4,5,peel,果皮
+4,5,coax,哄
+5,5,transportation,运输
+5,5,transfer,转移
+5,5,haul,拖
+5,5,axle,轮轴
+5,5,rotate,旋转
+5,5,spoke,辐条
+5,5,rim,边
+5,5,traction,拖拉
+5,5,gear,排挡
+5,5,grind,磨碎
+5,5,technology,科技
+5,5,rod,杆
+5,5,platform,讲台
+5,5,vehicle,车辆
+5,5,durable,持久的
+5,5,mill,磨坊
+5,5,mechanical,机械（学）的
+5,5,inspiring,鼓舞人心的
+6,5,eternity,无穷无尽的时间
+6,5,transition,过渡
+6,5,irritating,气人的
+6,5,spectacular,壮观的场面
+6,5,categorize,把…归类
+6,5,literally,逐字地
+6,5,wither,枯萎
+6,5,decay,腐烂
+6,5,tempestuous,暴风雨的
+6,5,schedule,计划（表）
+6,5,consistently,一贯地
+6,5,predictable,可预测的
+6,5,control,控制权
+6,5,mood,情绪
+6,5,adapt,适应/适合
+6,5,accurately,精确地
+6,5,decent,像样的
+6,5,doubt,怀疑
+4,6,convenient,实用的
+4,6,export,出口
+4,6,local,当地的
+4,6,process,步骤
+4,6,package,包裹
+4,6,farmer's market,农民市场：一个市场
+4,6,agriculture,农业
+4,6,corporate farm,公司农业：指由大型企业或公司进行的农业生产
+4,6,decrease,减少
+4,6,century,世纪
+4,6,chemical,化学品
+4,6,grocery stores,杂货店：出售食品、日用品等的小型零售店。
+4,6,food labels,食品标签：一种附在食品包装上的标签
+4,6,organic food,有机食品：指通过有机农业生产方式获得的食品
+4,6,whole food,天然食品
+5,6,obedient,服从的
+5,6,fortunate,幸运的
+5,6,tedious,冗长的
+5,6,exciting,令人兴奋的
+5,6,fragile,脆弱的
+5,6,determined,决心
+5,6,daring,胆量
+5,6,foolish,愚蠢的
+5,6,thrilling,令人兴奋的
+5,6,courageous,勇敢的
+5,6,risky,冒险的
+5,6,fascinated,着迷的
+5,6,settlement,协议
+5,6,longed for,渴望的
+5,6,blurry,模糊的
+5,6,propelling,推进( propel的现在分词 )
+5,6,adjusted,调整过的
+5,6,figures,数字
+6,6,covering,掩蔽物
+6,6,disguise,伪装
+6,6,entertainment,娱乐节目/活动
+6,6,essential,必需品
+6,6,urgent,紧急的
+6,6,lifesaver,济急的人
+6,6,shield,盾
+6,6,safeguard,保护
+6,6,crucial,至关重要的
+6,6,performer,表演者
+6,6,elaborate,复杂的
+6,6,central,中心的
+6,6,basic,基础的
+6,6,enthusiasm,热情
+6,6,antiquity,古老
+6,6,ridiculous,荒谬的
+6,6,operations,操作( operation的名词复数 )
+6,6,germs,微生物( germ的名词复数 )
+6,6,individual,个人
+4,7,sketch,草图
+4,7,pastels,蜡笔
+4,7,canvas,帆布
+4,7,paintbrushes,漆刷
+4,7,shapes,<口>情况( shape的名词复数 )
+4,7,three-dimensional,三维的
+4,7,prodigy,奇才
+4,7,street,大街
+4,7,painter,画家
+4,7,carpenter,木工
+4,7,sculptor,雕刻家
+4,7,complex,综合建筑群
+4,7,washable,可洗的
+4,7,combines,联合( combine的第三人称单数 )
+4,7,fascination,着迷
+5,7,race,赛跑
+5,7,drift,漂移
+5,7,glide,滑行
+5,7,wade,蹚
+5,7,paddle,短桨
+5,7,dive,跳水
+5,7,splash,稀里哗啦地溅落
+5,7,propel,推进
+5,7,float,浮体
+5,7,sprint,全速短跑
+5,7,jog,慢跑
+5,7,plod,辛勤工作
+5,7,fishing rod,钓鱼竿：一种弹性锥形的、通常是由木材、竹子或钢制成的杆子
+5,7,chuckled,轻声地笑( chuckle的过去式和过去分词 )
+5,7,hook,钩
+5,7,beamed,有梁的
+5,7,paddles,划船( paddle的名词复数 )
+5,7,grinning,露齿笑
+6,7,symmetrical,对称的
+6,7,equilateral,等边的
+6,7,identical,同一的
+6,7,infinite,无限的
+6,7,reproduce,复制
+6,7,repetition,重复
+6,7,extend,延长
+6,7,interlocking,联锁的
+6,7,dimensions,面积
+6,7,structure,结构
+6,7,internal,内部的
+6,7,arrangement,布置
+6,7,aesthetic,审美的
+6,7,experiment,实验
+6,7,hesitate,犹豫
+6,7,approximately,大约
+6,7,constituent,成分
+6,7,practical,实验课
+6,7,employ,雇用
+4,8,exhibition,展览会
+4,8,frame,框架
+4,8,landscape,风景
+4,8,texture,质地
+4,8,shading,留下阴影
+4,8,perspective,透镜
+4,8,contrast,悬殊
+4,8,space,空间
+4,8,stained,玷污的
+4,8,brilliant,巧妙的
+4,8,pale,苍白的
+4,8,ignore,忽视
+4,8,worries,担心
+4,8,famous,著名的
+4,8,speechless,无言的
+5,8,communicative,健谈的
+5,8,locate,找到
+5,8,collaborate,合作
+5,8,imitate,模仿
+5,8,behave,行为
+5,8,indicate,表明
+5,8,attract,吸引
+5,8,threaten,恐吓
+5,8,defend,保卫
+5,8,approach,靠近
+5,8,express,表达
+5,8,produce,农产品
+5,8,underwater,在水中的
+5,8,decibels,[声]分贝（声音强度单位
+5,8,territory,领土
+5,8,alarm,惊恐
+5,8,signals,信号( signal的名词复数 )
+5,8,difficulty,难题
+6,8,image,形象
+6,8,surpass,超过
+6,8,stare,注视
+6,8,laboratory,实验室
+6,8,copious,丰富的
+6,8,examination,考试
+6,8,minute,分（钟）
+6,8,fragment,碎片
+6,8,triumphantly,耀武扬威地
+6,8,panic,恐慌
+6,8,eyepiece,[光] 目镜
+6,8,astonishment,惊讶
+6,8,dazzling,令人赞叹的
+6,8,piles,痔
+6,8,bothered,打扰（ bother的过去式和过去分词 ）
+6,8,forecast,预测
+6,8,flickered,闪烁
+6,8,gust,一阵狂风
+6,8,scrambled,快速爬行( scramble的过去式和过去分词 )
+4,9,canal,运河
+4,9,port,港口
+4,9,architecture,建筑学
+4,9,rickshaw,黄包车
+4,9,street vendor,货郎
+4,9,antiques,古玩
+4,9,souvenirs,纪念品
+4,9,batik,蜡防印花法
+4,9,exotic fruits,异国水果：指产自其他国家或地区
+4,9,tuna,<鱼>金枪鱼（科）
+4,9,shrimp,虾
+4,9,countless,无数的
+4,9,congested,拥挤的
+4,9,haggle,乱劈
+4,9,banned,取缔（ ban的过去分词 ）
+5,9,culture,文化
+5,9,civilization,文明
+5,9,contribution,贡献
+5,9,development,发展
+5,9,achievement,成绩
+5,9,device,装置
+5,9,process,步骤
+5,9,tradition,传统
+5,9,custom,风俗
+5,9,benefit,好处
+5,9,ceremony,典礼
+5,9,product,产品
+5,9,trade,贸易
+5,9,tablets,药片( tablet的名词复数 )
+5,9,voyage,航行
+5,9,ancient,古代的
+5,9,advanced,先进的
+5,9,tools,[机]工具
+6,9,gesture,手势
+6,9,beckon,招手示意
+6,9,refusal,拒绝
+6,9,disapproval,不赞同
+6,9,group,组
+6,9,lack,缺乏
+6,9,raised,凸起的
+6,9,enable,使能够
+6,9,invaluable,极有用的
+6,9,consist,由…组成
+6,9,distress,悲伤
+6,9,conceal,隐匿
+6,9,transmit,传输
+6,9,widely,普遍地
+6,9,estimate,估计
+6,9,ancestor,祖先
+6,9,brand-new,崭新的
+6,9,ingenious,灵巧的
+6,9,allies,联盟国
+4,10,citizens,市民
+4,10,volunteers,义务工作者( volunteer的名词复数 )
+4,10,mayor,市长
+4,10,assistant,助手
+4,10,city council,市议会
+4,10,city hall,市政厅
+4,10,president,总统
+4,10,garbage,垃圾
+4,10,collectors,收集者
+4,10,equipment,设备
+4,10,news conference,记者招待会
+4,10,playground,操场
+4,10,contest,比赛
+4,10,ribbon,带
+4,10,speech,演说
+4,10,members,成员
+5,10,delicious,美味的
+5,10,creamy,含奶油的
+5,10,spicy,辛辣的
+5,10,nutty,多坚果的
+5,10,ladle,长柄勺
+5,10,sticky,告事贴
+5,10,crunchy,发嘎吱嘎吱声的
+5,10,runny,流鼻涕的
+5,10,smooth,光滑的
+5,10,whirring,呼呼作声地飞（或转）
+5,10,booming,急速发展的
+5,10,spot,地点
+5,10,square,正方形
+5,10,skidded,滑动
+5,10,dizzy,眩晕的
+5,10,sniffing,探查法
+5,10,molds,Management On-Line Data System 管理联机数据系统
+5,10,winked,使眼色( wink的过去式和过去分词 )
+6,10,circular,圆形的
+6,10,radiant,光点
+6,10,shimmer,微光
+6,10,misty,多雾的
+6,10,rugged,崎岖的
+6,10,pesky,<非正>烦人的
+6,10,devise,设计
+6,10,desperately,绝望地
+6,10,irritated,恼怒的
+6,10,frustrated,挫败的
+6,10,piercingly,刺透地
+6,10,intently,专心地
+6,10,customary,习俗的
+6,10,only,只
+6,10,palms,手掌
+6,10,ferns,<植>羊齿植物
+6,10,impenetrable,不能通过的
+6,10,insignificant,不重要的
+6,10,respective,各自的
+4,11,cells,[细胞]细胞
+4,11,microscope,显微镜
+4,11,virus,病毒
+4,11,bacteria,细菌
+4,11,disease,疾病
+4,11,influenza,流行性感冒
+4,11,common cold,感冒
+4,11,mucus,粘液
+4,11,immune,免疫的
+4,11,paralyze,使瘫痪
+4,11,infect,传染
+4,11,suit,一套衣服
+4,11,scrape,刮除
+4,11,fluid,液体
+4,11,swallowed,吞
+5,11,glacier,冰河
+5,11,mountain range,山脉
+5,11,peak,山峰
+5,11,altitude,海拔
+5,11,valley,山谷
+5,11,steep,陡峭的
+5,11,slope,斜坡
+5,11,hill,小山
+5,11,terrace,台阶
+5,11,effective,有效的
+5,11,water,水
+5,11,cycle,自行车
+5,11,vapor,水汽
+5,11,transformed,transform的变形
+5,11,condenses,浓缩
+5,11,released,释放
+5,11,flows,流( flow的第三人称单数 )
+5,11,storing,储存
+5,11,resources,勇气
+6,11,summit,首脑会议
+6,11,loom,织布机
+6,11,cling,抓住
+6,11,crack,破裂
+6,11,handhold,握住
+6,11,expedition,探险（队）
+6,11,laboriously,艰苦地
+6,11,plateau,高原
+6,11,dome,穹顶
+6,11,slack,宽松裤
+6,11,ledge,岩架
+6,11,slim,苗条的
+6,11,awesome,让人惊叹的
+6,11,considerable,相当大/多的
+6,11,panting,气喘吁吁
+6,11,exposed,裸露的
+6,11,satisfaction,满意
+6,11,disaster,灾难
+6,11,perched,栖息的
+4,12,system,体系
+4,12,blood,血（液）
+4,12,heart,心
+4,12,arteries,<解>动脉( artery的名词复数 )
+4,12,veins,纹理
+4,12,capillary,毛细管
+4,12,lungs,[解剖]肺（lung 的复数形式）
+4,12,trachea,[脊椎][解剖] 气管
+4,12,diaphragm,<机> 隔板
+4,12,carbon,碳
+4,12,dioxide,二氧化物
+4,12,pulse,脉搏
+4,12,major,重大的
+4,12,pumps,泵( pump的名词复数 )
+4,12,tubes,[材]管子
+4,12,squeezes,拥挤( squeeze的名词复数 )
+5,12,endless,无止境的
+5,12,stammer,口吃
+5,12,awestruck,敬畏的
+5,12,jagged,参差不齐的
+5,12,pointy,有尖头的
+5,12,miniature,微型复制品
+5,12,stern,船尾
+5,12,arch,拱（门）
+5,12,mutter,咕哝
+5,12,squirm,蠕动
+5,12,scowl,愁容
+5,12,stretch,变大
+5,12,silhouette,轮廓
+5,12,shielded,防护的
+5,12,teasing,戏弄
+5,12,folded,折叠的
+5,12,embarrassed,局促不安的
+5,12,distant,遥远的
+6,12,typical,典型的
+6,12,legal,法律的
+6,12,butler,男管家
+6,12,housekeeper,女管家
+6,12,dustpan,畚箕
+6,12,assign,分派
+6,12,dismiss,开除
+6,12,cauldron,大锅
+6,12,gristly,软骨的
+6,12,scone,烤饼
+6,12,approve,同意
+6,12,blame,责怪
+6,12,frantic,紧张忙乱的
+6,12,range,一系列
+6,12,confessed,众所周知的
+6,12,copper,铜（币）
+6,12,strict,严格的
+6,12,appetite,食欲
+6,12,passageway,通道
+4,13,mass media,大众传播媒体
+4,13,newspaper,报纸
+4,13,magazine,杂志
+4,13,printing press,印刷机：一种生产印刷副本的机器。
+4,13,publisher,出版者
+4,13,advertising,广告活动
+4,13,broadcast,广播
+4,13,the,这
+4,13,Web,蜘蛛网
+4,13,smartphone,智能手机
+4,13,blog,网络日志
+4,13,social network,社交网络
+4,13,journalist,新闻工作者
+4,13,newsreels,新闻短片（newsreel的复数形式）
+4,13,radio station,广播电台：一种安装了无线电发射机和可能还有接收机的设备
+4,13,latest,最近的
+5,13,terrifying,可怕的
+5,13,nervously,神经质地
+5,13,rudely,粗鲁地
+5,13,politely,有礼貌地
+5,13,fierce,凶猛的
+5,13,aggressively,侵略地
+5,13,delicate,脆弱的
+5,13,bravely,勇敢地
+5,13,greedy,贪吃的
+5,13,shyly,羞怯地
+5,13,wise,充满智慧的
+5,13,calmly,镇定自若地
+5,13,muscles,肌肉（muscle 的复数）
+5,13,growling,咆哮的
+5,13,stirring,萌动
+5,13,mouth-,令人垂涎的
+5,13,watering,浇水
+5,13,tempting,吸引人的
+5,13,staring,目不转睛的
+6,13,argue,争论
+6,13,amuse,使开心
+6,13,lazily,怠惰地
+6,13,awkward,令人尴尬的
+6,13,pitifully,可怜地
+6,13,clumsy,笨拙的
+6,13,limp,瘸着脚走
+6,13,resemble,像
+6,13,mock,模拟考试
+6,13,jeers,操纵帆桁下部索具
+6,13,minor,未成年人
+6,13,bear,熊
+6,13,key,钥匙
+6,13,dew,露水
+6,13,oars,桨
+6,13,comical,滑稽的
+6,13,beak,鸟喙
+6,13,partly,部分地
+6,13,silences,使安静( silence的第三人称单数 )
+4,14,reporter,记者
+4,14,editor,主编
+4,14,interview,面试
+4,14,headline,大字标题
+4,14,hero,英雄
+4,14,website,网站
+4,14,mistake,错误
+4,14,decide,决定
+4,14,discuss,讨论
+4,14,investigate,调查
+4,14,search,搜查
+4,14,mansion,大厦
+4,14,terrible,非常严重的
+4,14,donated,捐赠( donate的过去式和过去分词 )
+4,14,fair,公平的
+5,14,bank,银行
+5,14,currency,货币
+5,14,coins,硬币（coin 的复数）
+5,14,barter,进行易货贸易
+5,14,copy,复制品
+5,14,bill,账单
+5,14,spend,花费
+5,14,pay,支付
+5,14,borrow,借
+5,14,exchange,交换
+5,14,owe,欠（钱）
+5,14,lend,借钱
+5,14,crops,作物( crop的名词复数 )
+5,14,shells,壳( shell的名词复数 )
+5,14,valuable,有价值的
+5,14,silver,银
+5,14,print,打印
+5,14,portraits,肖像
+6,14,decorate,装饰
+6,14,artistically,有艺术地
+6,14,ornithologist,鸟类学家
+6,14,imply,含有…的意思
+6,14,spine,脊髓
+6,14,mimic,巧于模仿的人
+6,14,annual,年报
+6,14,encounter,遭遇
+6,14,phenomenal,非凡的
+6,14,impress,使钦佩
+6,14,technique,技术
+6,14,inspect,检查
+6,14,behavior,行为
+6,14,revealed,揭露
+6,14,ability,能力
+6,14,spear,矛
+6,14,man-made,人造的
+6,14,harsh,粗糙的
+6,14,brainy,聪明的
+4,15,flood,洪水
+4,15,earthquake,地震
+4,15,tsunami,海啸
+4,15,hurricane,飓风
+4,15,tornado,龙卷风
+4,15,blizzard,暴风雪
+4,15,thunderstorm,雷雨
+4,15,rescue,营救（行动）
+4,15,worker,工作者
+4,15,victim,受害者
+4,15,power lines,电力线
+4,15,collapse,倒闭
+4,15,forces,势力
+4,15,funnel,漏斗
+4,15,horizontally,水平地
+4,15,vertically,垂直地
+5,15,design,设计
+5,15,innovative,革新的
+5,15,remarkable,异常的
+5,15,ambitious,有野心的
+5,15,permanent,永久的
+5,15,settle,解决
+5,15,emerge,出现
+5,15,artificial,人造的
+5,15,promote,促进
+5,15,enclose,围住
+5,15,suitable,合适的
+5,15,beneficial,有益的
+5,15,cease,停止
+5,15,magnified,放大了的
+5,15,algae,水藻
+5,15,applies,应用( apply的第三人称单数 )
+5,15,provides,提供
+5,15,crustaceans,甲壳纲动物（如蟹、龙虾）( crustacean的名词复数 )
+6,15,rapid,瞬间的
+6,15,alert,警惕的
+6,15,numb,麻木的
+6,15,interpret,诠释
+6,15,store,商店
+6,15,respond,回答
+6,15,threat,威胁
+6,15,frozen,冷冻的
+6,15,reflex,反应能力
+6,15,trigger,扳机
+6,15,tame,驯服的
+6,15,rehearse,详述
+6,15,distracted,思想不集中的
+6,15,obvious,明显的
+6,15,defensive,存有戒心
+6,15,adrenaline,<生化>肾上腺素
+6,15,decisions,决定( decision的名词复数 )
+6,15,instantly,立刻
+6,15,deliberate,蓄意的
+4,16,emergency,突发事件
+4,16,storm shelter,暴风雨庇护所：一种用于保护人们免受自然灾害（如飓风、龙卷风等）影响的建筑物或设施。
+4,16,first-aid,急救的
+4,16,kit,衣物和装备
+4,16,cash,现金
+4,16,storm shutters,风暴百叶窗：一种用于保护建筑物窗户或门的装置
+4,16,sleeping bag,睡袋：一种为户外露营或帐篷中睡眠而设计的袋子
+4,16,flashlight,手电筒
+4,16,batteries,电池
+4,16,supplies,物资
+4,16,bottled water,瓶装水：以瓶装销售的饮用水
+4,16,canned food,罐头食品
+4,16,inland,在内地
+4,16,destroyed,破坏( destroy的过去式和过去分词 )
+4,16,trunk,树干
+4,16,landfall,着陆
+5,16,cabin,小木屋
+5,16,advisor,顾问
+5,16,deck,甲板
+5,16,grateful,感激的
+5,16,tempest,暴风雨
+5,16,save,救球
+5,16,break up,分手：指结束一段感情关系或婚姻。
+5,16,react,反应
+5,16,villain,反面人物
+5,16,stage,阶段
+5,16,playwright,剧作家
+5,16,set,一套/副/组
+5,16,aid,帮助
+5,16,massive,巨大的
+5,16,petrified,惊呆的
+5,16,crew,全体工作人员
+5,16,elderly,年纪较大的
+5,16,preventing,防止的
+6,16,sleepover,聚会
+6,16,outlandish,古怪的
+6,16,tiptoe,踮着脚走
+6,16,creepy,<非正式>怪异的
+6,16,snuggle,使舒适温暖
+6,16,uncontrollably,控制不住地
+6,16,upright,直立的
+6,16,nocturnal,夜的
+6,16,peculiar,奇怪的
+6,16,apprehensively,担心地
+6,16,metamorphose,使变形
+6,16,twinkle,闪烁
+6,16,dynamic,充满活力的
+6,16,briefly,简短地
+6,16,chattering,喋喋不休( chatter的现在分词 )
+6,16,gripped,紧咬
+6,16,removing,消除
+6,16,staff,全体职工
+6,16,weaving,编
+4,17,biome,生物群系
+4,17,desert,沙漠
+4,17,grassland,草原
+4,17,tropical,热带的
+4,17,rainforest,雨林
+4,17,temperate forest,温带森林：位于热带和寒带之间的森林
+4,17,taiga,针叶树林地带
+4,17,tundra,冻土带
+4,17,freshwater,淡水的
+4,17,equator,赤道
+4,17,sloth,<正式>懒散
+4,17,cactus,仙人掌
+4,17,Arctic,北极圈
+4,17,hatches,孵化
+4,17,glides,滑翔
+4,17,scenes,场景（scene 的复数）
+5,17,stadium,体育场
+5,17,lighthouse,灯塔
+5,17,tower,塔（楼）
+5,17,skyscraper,摩天大楼
+5,17,warehouse,仓库
+5,17,palace,王宫
+5,17,courthouse,法院
+5,17,theater,电影院
+5,17,concert hall,演奏厅
+5,17,office,办公室
+5,17,art gallery,艺术画廊：一个房间、一组房间或其他空间
+5,17,showroom,陈列室
+5,17,architect,建筑师
+5,17,function,功能
+5,17,steel,钢
+5,17,construction,建造（方式）
+5,17,countless,无数的
+5,17,aquatics,水上运动
+6,17,instinct,本能
+6,17,coiled,盘绕的
+6,17,poisonous,有毒的
+6,17,unmistakable,不会弄错的
+6,17,lethal,致命的
+6,17,hideous,令人惊骇的
+6,17,crumpled,弄皱
+6,17,illicitly,违法地
+6,17,tinged,略带 (某种颜色) 的
+6,17,soothingly,抚慰地
+6,17,warily,警惕地
+6,17,sidle,悄悄地走
+6,17,miraculous,奇迹般的
+6,17,evilly,邪恶地
+6,17,capable,有能力的
+6,17,quivered,微颤
+6,17,tingle,感到刺痛
+6,17,confided,吐露（秘密
+6,17,lingering,拖延的
+4,18,parrot fish,鹦鹉鱼：一种通常生活在热带海域的、颜色鲜艳的海洋鱼类
+4,18,seahorse,海马
+4,18,manta ray,蝠鲼
+4,18,sea turtle,海龟
+4,18,marine park,海洋公园
+4,18,snorkel,通气管
+4,18,speedboat,快艇
+4,18,border,边界（地区）
+4,18,petition,请愿书
+4,18,law,法
+4,18,astonish,使吃惊
+4,18,manage,管理
+4,18,invited,邀请
+4,18,signed,有符号的
+4,18,difference,差异
+5,18,turrets,<机>（六角）转台( turret的名词复数 )
+5,18,stables,养马场( stable的名词复数 )
+5,18,gatehouse,警卫室
+5,18,moat,壕沟
+5,18,drawbridge,开合桥
+5,18,hall,礼堂
+5,18,courtyard,庭院
+5,18,ramparts,防御土墙( rampart的名词复数 )
+5,18,mumble,含糊的话
+5,18,stiffen,变僵硬
+5,18,missing,找不到的
+5,18,tremble,战栗
+5,18,solve,解决
+5,18,surrounded,被……环绕着的
+5,18,gazed,凝视
+5,18,padlock,挂锁
+5,18,mysterious,神秘的
+5,18,vanished,消失了的
+6,18,storytelling,讲故事
+6,18,impulse,凭冲动行事
+6,18,breakthrough,重大进展
+6,18,dedicated,专注的
+6,18,publish,出版
+6,18,futuristic,极其现代的
+6,18,imagination,想象力
+6,18,novelist,小说家
+6,18,recount,叙述
+6,18,relate,联系
+6,18,reminisce,追忆
+6,18,intricate,错综复杂的
+6,18,purely,完全地
+6,18,incidents,发生的事( incident的名词复数 )
+6,18,biography,传记
+6,18,autobiography,自传
+6,18,attitudes,态度
+6,18,available,可用的
+6,18,plot,阴谋

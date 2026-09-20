@@ -6,7 +6,7 @@ export interface WordItem {
   example?: string;
 }
 
-export type LibraryCategory = 'sight-words' | 'phonics' | 'stories' | 'custom' | 'cambridge';
+export type LibraryCategory = 'sight-words' | 'phonics' | 'discover' | 'stories' | 'custom' | 'cambridge';
 
 export interface WordLibrary {
   id: string;

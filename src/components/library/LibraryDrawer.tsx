@@ -54,6 +54,24 @@ export const LibraryDrawer: React.FC<LibraryDrawerProps> = ({
     exportLibraryJson(id);
   };
 
+  const [activeCategory, setActiveCategory] = React.useState<string>('all');
+
+  const CATEGORIES = [
+    { id: 'all', name: '全部' },
+    { id: 'phonics', name: '🔤 自然拼读' },
+    { id: 'discover', name: '🧭 牛津探索' },
+    { id: 'sight-words', name: '🌟 高频词' },
+    { id: 'cambridge', name: '🦁 剑桥英语' },
+    { id: 'stories', name: '📖 经典童话' },
+    { id: 'custom', name: '✨ 自定义' },
+  ];
+
+  const filteredLibraries = libraries.filter((lib) => {
+    if (activeCategory === 'all') return true;
+    if (activeCategory === 'custom') return lib.isCustom;
+    return lib.category === activeCategory;
+  });
+
   return (
     <div className="fixed inset-0 z-50 flex justify-end bg-black/40 backdrop-blur-xs animate-pop-in">
       <div
@@ -71,7 +89,7 @@ export const LibraryDrawer: React.FC<LibraryDrawerProps> = ({
                 速读词库宝库
               </h2>
               <p className="text-xs text-gray-500 font-bold">
-                共 {libraries.length} 本词书，随时切换
+                共 {libraries.length} 本精品词书，随时切换
               </p>
             </div>
           </div>
@@ -87,22 +105,45 @@ export const LibraryDrawer: React.FC<LibraryDrawerProps> = ({
         </div>
 
         {/* Action button: Import custom */}
-        <div className="p-4 border-b border-gray-100 bg-gray-50/60">
+        <div className="p-3 border-b border-gray-100 bg-gray-50/60">
           <button
             onClick={() => {
               playPop();
               onOpenImport();
             }}
-            className="w-full py-3 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-400 text-white font-black text-sm shadow-md shadow-pink-200 hover:opacity-95 active:scale-98 flex items-center justify-center gap-2 transition-all"
+            className="w-full py-2.5 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-400 text-white font-black text-xs sm:text-sm shadow-md shadow-pink-200 hover:opacity-95 active:scale-98 flex items-center justify-center gap-1.5 transition-all"
           >
             <Plus className="w-4 h-4 stroke-[3]" />
             导入 / 新建自定义词书
           </button>
         </div>
 
+        {/* Category Filter Pills */}
+        <div className="px-3 py-2 border-b border-gray-100 bg-white flex gap-1.5 overflow-x-auto shrink-0">
+          {CATEGORIES.map((cat) => {
+            const isCatActive = activeCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => {
+                  playPop();
+                  setActiveCategory(cat.id);
+                }}
+                className={`px-2.5 py-1 rounded-xl text-xs font-black shrink-0 transition-all active:scale-95 ${
+                  isCatActive
+                    ? 'bg-pink-500 text-white shadow-2xs'
+                    : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
+                }`}
+              >
+                {cat.name}
+              </button>
+            );
+          })}
+        </div>
+
         {/* Library list */}
         <div className="flex-1 overflow-y-auto p-4 space-y-3">
-          {libraries.map((lib) => {
+          {filteredLibraries.map((lib) => {
             const isSelected = activeLibraryId === lib.id;
             return (
               <div
