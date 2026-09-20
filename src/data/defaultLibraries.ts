@@ -51,6 +51,495 @@ export const DEFAULT_LIBRARIES: WordLibrary[] = [
     ],
   },
   {
+    id: 'oxford-phonics-5',
+    title: '牛津自然拼读第5级 (Oxford Phonics 5)',
+    description: '牛津少儿自然拼读核心词汇（Unit 1-8 全套 96 词，中英双语对照）',
+    category: 'phonics',
+    badgeEmoji: '📚',
+    words: [
+      {
+            id: "opw5_1",
+            word: "car",
+            translation: "小汽车"
+      },
+      {
+            id: "opw5_2",
+            word: "farm",
+            translation: "农场"
+      },
+      {
+            id: "opw5_3",
+            word: "park",
+            translation: "公园"
+      },
+      {
+            id: "opw5_4",
+            word: "star",
+            translation: "星星"
+      },
+      {
+            id: "opw5_5",
+            word: "bird",
+            translation: "小鸟"
+      },
+      {
+            id: "opw5_6",
+            word: "girl",
+            translation: "女孩"
+      },
+      {
+            id: "opw5_7",
+            word: "nurse",
+            translation: "护士"
+      },
+      {
+            id: "opw5_8",
+            word: "purple",
+            translation: "紫色"
+      },
+      {
+            id: "opw5_9",
+            word: "teacher",
+            translation: "老师"
+      },
+      {
+            id: "opw5_10",
+            word: "sister",
+            translation: "姐妹"
+      },
+      {
+            id: "opw5_11",
+            word: "doctor",
+            translation: "医生"
+      },
+      {
+            id: "opw5_12",
+            word: "tractor",
+            translation: "拖拉机"
+      },
+      {
+            id: "opw5_13",
+            word: "mouse",
+            translation: "老鼠"
+      },
+      {
+            id: "opw5_14",
+            word: "house",
+            translation: "房屋"
+      },
+      {
+            id: "opw5_15",
+            word: "cow",
+            translation: "奶牛"
+      },
+      {
+            id: "opw5_16",
+            word: "brown",
+            translation: "棕色"
+      },
+      {
+            id: "opw5_17",
+            word: "coin",
+            translation: "硬币"
+      },
+      {
+            id: "opw5_18",
+            word: "soil",
+            translation: "泥土"
+      },
+      {
+            id: "opw5_19",
+            word: "toy",
+            translation: "玩具"
+      },
+      {
+            id: "opw5_20",
+            word: "boy",
+            translation: "男孩"
+      },
+      {
+            id: "opw5_21",
+            word: "book",
+            translation: "书本"
+      },
+      {
+            id: "opw5_22",
+            word: "foot",
+            translation: "脚"
+      },
+      {
+            id: "opw5_23",
+            word: "bush",
+            translation: "灌木丛"
+      },
+      {
+            id: "opw5_24",
+            word: "pull",
+            translation: "拉/拽"
+      },
+      {
+            id: "opw5_25",
+            word: "sauce",
+            translation: "酱汁"
+      },
+      {
+            id: "opw5_26",
+            word: "august",
+            translation: "八月"
+      },
+      {
+            id: "opw5_27",
+            word: "prawn",
+            translation: "大虾"
+      },
+      {
+            id: "opw5_28",
+            word: "draw",
+            translation: "画画"
+      },
+      {
+            id: "opw5_29",
+            word: "ball",
+            translation: "球"
+      },
+      {
+            id: "opw5_30",
+            word: "tall",
+            translation: "高的"
+      },
+      {
+            id: "opw5_31",
+            word: "water",
+            translation: "水"
+      },
+      {
+            id: "opw5_32",
+            word: "walk",
+            translation: "散步/走路"
+      },
+      {
+            id: "opw5_33",
+            word: "horse",
+            translation: "马"
+      },
+      {
+            id: "opw5_34",
+            word: "fork",
+            translation: "叉子"
+      },
+      {
+            id: "opw5_35",
+            word: "roar",
+            translation: "吼叫/咆哮"
+      },
+      {
+            id: "opw5_36",
+            word: "board",
+            translation: "木板/黑板"
+      },
+      {
+            id: "opw5_37",
+            word: "square",
+            translation: "正方形"
+      },
+      {
+            id: "opw5_38",
+            word: "share",
+            translation: "分享"
+      },
+      {
+            id: "opw5_39",
+            word: "chair",
+            translation: "椅子"
+      },
+      {
+            id: "opw5_40",
+            word: "hair",
+            translation: "头发"
+      },
+      {
+            id: "opw5_41",
+            word: "bread",
+            translation: "面包"
+      },
+      {
+            id: "opw5_42",
+            word: "head",
+            translation: "头"
+      },
+      {
+            id: "opw5_43",
+            word: "bear",
+            translation: "熊"
+      },
+      {
+            id: "opw5_44",
+            word: "pear",
+            translation: "梨"
+      },
+      {
+            id: "opw5_45",
+            word: "ear",
+            translation: "耳朵"
+      },
+      {
+            id: "opw5_46",
+            word: "clear",
+            translation: "清晰的/清澈的"
+      },
+      {
+            id: "opw5_47",
+            word: "deer",
+            translation: "小鹿"
+      },
+      {
+            id: "opw5_48",
+            word: "cheer",
+            translation: "欢呼"
+      },
+      {
+            id: "opw5_49",
+            word: "acorn",
+            translation: "橡果"
+      },
+      {
+            id: "opw5_50",
+            word: "baby",
+            translation: "婴儿/宝宝"
+      },
+      {
+            id: "opw5_51",
+            word: "child",
+            translation: "孩子/儿童"
+      },
+      {
+            id: "opw5_52",
+            word: "cold",
+            translation: "寒冷的"
+      },
+      {
+            id: "opw5_53",
+            word: "elevator",
+            translation: "电梯"
+      },
+      {
+            id: "opw5_54",
+            word: "he",
+            translation: "他"
+      },
+      {
+            id: "opw5_55",
+            word: "hotel",
+            translation: "旅馆/酒店"
+      },
+      {
+            id: "opw5_56",
+            word: "lady",
+            translation: "女士"
+      },
+      {
+            id: "opw5_57",
+            word: "music",
+            translation: "音乐"
+      },
+      {
+            id: "opw5_58",
+            word: "she",
+            translation: "她"
+      },
+      {
+            id: "opw5_59",
+            word: "tiger",
+            translation: "老虎"
+      },
+      {
+            id: "opw5_60",
+            word: "uniform",
+            translation: "校服/制服"
+      },
+      {
+            id: "opw5_61",
+            word: "banana",
+            translation: "香蕉"
+      },
+      {
+            id: "opw5_62",
+            word: "chicken",
+            translation: "小鸡/鸡肉"
+      },
+      {
+            id: "opw5_63",
+            word: "honey",
+            translation: "蜂蜜"
+      },
+      {
+            id: "opw5_64",
+            word: "lemon",
+            translation: "柠檬"
+      },
+      {
+            id: "opw5_65",
+            word: "love",
+            translation: "爱/喜爱"
+      },
+      {
+            id: "opw5_66",
+            word: "monkey",
+            translation: "猴子"
+      },
+      {
+            id: "opw5_67",
+            word: "panda",
+            translation: "大熊猫"
+      },
+      {
+            id: "opw5_68",
+            word: "pencil",
+            translation: "铅笔"
+      },
+      {
+            id: "opw5_69",
+            word: "son",
+            translation: "儿子"
+      },
+      {
+            id: "opw5_70",
+            word: "surprise",
+            translation: "惊喜"
+      },
+      {
+            id: "opw5_71",
+            word: "umbrella",
+            translation: "雨伞"
+      },
+      {
+            id: "opw5_72",
+            word: "gorilla",
+            translation: "大猩猩"
+      },
+      {
+            id: "opw5_73",
+            word: "castle",
+            translation: "城堡"
+      },
+      {
+            id: "opw5_74",
+            word: "comb",
+            translation: "梳子"
+      },
+      {
+            id: "opw5_75",
+            word: "glove",
+            translation: "手套"
+      },
+      {
+            id: "opw5_76",
+            word: "knee",
+            translation: "膝盖"
+      },
+      {
+            id: "opw5_77",
+            word: "knife",
+            translation: "小刀"
+      },
+      {
+            id: "opw5_78",
+            word: "lamb",
+            translation: "小羊"
+      },
+      {
+            id: "opw5_79",
+            word: "live",
+            translation: "居住/生活"
+      },
+      {
+            id: "opw5_80",
+            word: "rhino",
+            translation: "犀牛"
+      },
+      {
+            id: "opw5_81",
+            word: "rhubarb",
+            translation: "大黄(食用植物)"
+      },
+      {
+            id: "opw5_82",
+            word: "whistle",
+            translation: "口哨"
+      },
+      {
+            id: "opw5_83",
+            word: "write",
+            translation: "写字"
+      },
+      {
+            id: "opw5_84",
+            word: "wrong",
+            translation: "错误的"
+      },
+      {
+            id: "opw5_85",
+            word: "beautiful",
+            translation: "美丽的"
+      },
+      {
+            id: "opw5_86",
+            word: "competition",
+            translation: "比赛"
+      },
+      {
+            id: "opw5_87",
+            word: "dangerous",
+            translation: "危险的"
+      },
+      {
+            id: "opw5_88",
+            word: "excursion",
+            translation: "远足/短途旅行"
+      },
+      {
+            id: "opw5_89",
+            word: "famous",
+            translation: "著名的"
+      },
+      {
+            id: "opw5_90",
+            word: "helpful",
+            translation: "乐于助人的"
+      },
+      {
+            id: "opw5_91",
+            word: "measure",
+            translation: "测量"
+      },
+      {
+            id: "opw5_92",
+            word: "nature",
+            translation: "大自然"
+      },
+      {
+            id: "opw5_93",
+            word: "picture",
+            translation: "图画/照片"
+      },
+      {
+            id: "opw5_94",
+            word: "station",
+            translation: "车站"
+      },
+      {
+            id: "opw5_95",
+            word: "television",
+            translation: "电视机"
+      },
+      {
+            id: "opw5_96",
+            word: "treasure",
+            translation: "宝藏"
+      }
+],
+  },
+  {
     id: 'cambridge-animals',
     title: '剑桥少儿英语：奇趣动物世界',
     description: '生动有趣的自然动物单词，配有发音与中文释义',
