@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   FileText,
   Upload,
@@ -8,14 +8,18 @@ import {
   AlertCircle,
   CheckCircle2,
   BookOpen,
+  Eye,
+  SlidersHorizontal,
 } from 'lucide-react';
 import { useLibrary } from '../../context/LibraryContext';
 import { useSoundEffects } from '../../hooks/useSoundEffects';
 import {
-  parseImportFileContent,
+  analyzeCsvContent,
+  buildWordItemsFromRows,
   parseRawTextToWords,
+  ParsedCsvResult,
 } from '../../utils/rsvpHelper';
-import { WordItem } from '../../types';
+import { WordItem } from '../../types/index';
 
 interface ImportModalProps {
   isOpen: boolean;
@@ -31,7 +35,7 @@ export const ImportModal: React.FC<ImportModalProps> = ({
   const { addCustomLibrary } = useLibrary();
   const { playPop, playFanfare } = useSoundEffects();
 
-  const [activeTab, setActiveTab] = useState<ImportTab>('passage');
+  const [activeTab, setActiveTab] = useState<ImportTab>('file');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [emoji, setEmoji] = useState('📖');
@@ -39,13 +43,46 @@ export const ImportModal: React.FC<ImportModalProps> = ({
   // Tab 1: Passage text
   const [passageText, setPassageText] = useState('');
 
-  // Tab 2: File content & preview
+  // Tab 2: File content & CSV analysis
   const [fileName, setFileName] = useState('');
-  const [fileWords, setFileWords] = useState<WordItem[]>([]);
   const [fileError, setFileError] = useState('');
+  const [csvAnalysis, setCsvAnalysis] = useState<ParsedCsvResult | null>(null);
+  const [wordCol, setWordCol] = useState<number>(0);
+  const [transCol, setTransCol] = useState<number>(1);
+  const [phoneticCol, setPhoneticCol] = useState<number>(-1);
+  const [skipHeader, setSkipHeader] = useState<boolean>(false);
 
   // Tab 3: Word list text
   const [wordListText, setWordListText] = useState('');
+
+  // Computed words for file upload
+  const fileWords = useMemo(() => {
+    if (!csvAnalysis || csvAnalysis.rows.length === 0) return [];
+    return buildWordItemsFromRows(
+      csvAnalysis.rows,
+      wordCol,
+      transCol,
+      phoneticCol,
+      skipHeader
+    );
+  }, [csvAnalysis, wordCol, transCol, phoneticCol, skipHeader]);
+
+  // Computed words for manual wordlist tab
+  const manualListAnalysis = useMemo(() => {
+    if (!wordListText.trim()) return null;
+    return analyzeCsvContent(wordListText);
+  }, [wordListText]);
+
+  const manualListWords = useMemo(() => {
+    if (!manualListAnalysis || manualListAnalysis.rows.length === 0) return [];
+    return buildWordItemsFromRows(
+      manualListAnalysis.rows,
+      manualListAnalysis.detectedWordCol,
+      manualListAnalysis.detectedTransCol,
+      manualListAnalysis.detectedPhoneticCol,
+      manualListAnalysis.hasHeader
+    );
+  }, [manualListAnalysis]);
 
   if (!isOpen) return null;
 
@@ -62,12 +99,17 @@ export const ImportModal: React.FC<ImportModalProps> = ({
     reader.onload = (evt) => {
       try {
         const content = evt.target?.result as string;
-        const words = parseImportFileContent(content);
-        if (words.length === 0) {
-          setFileError('未能在文件中解析到有效单词，请检查格式');
-          setFileWords([]);
+        const analysis = analyzeCsvContent(content);
+
+        if (analysis.rows.length === 0) {
+          setFileError('未能在文件中读取到内容，请检查文件格式');
+          setCsvAnalysis(null);
         } else {
-          setFileWords(words);
+          setCsvAnalysis(analysis);
+          setWordCol(analysis.detectedWordCol);
+          setTransCol(analysis.detectedTransCol);
+          setPhoneticCol(analysis.detectedPhoneticCol);
+          setSkipHeader(analysis.hasHeader);
           setFileError('');
         }
       } catch (err) {
@@ -85,7 +127,7 @@ export const ImportModal: React.FC<ImportModalProps> = ({
     } else if (activeTab === 'file') {
       finalWords = fileWords;
     } else if (activeTab === 'wordlist') {
-      finalWords = parseImportFileContent(wordListText);
+      finalWords = manualListWords;
     }
 
     if (finalWords.length === 0) {
@@ -112,7 +154,7 @@ export const ImportModal: React.FC<ImportModalProps> = ({
     setDescription('');
     setPassageText('');
     setFileName('');
-    setFileWords([]);
+    setCsvAnalysis(null);
     setWordListText('');
   };
 
@@ -131,20 +173,25 @@ export const ImportModal: React.FC<ImportModalProps> = ({
     setDescription('常用食物单词中英对照');
     setEmoji('🍓');
     setWordListText(
-      `apple, 苹果, [ˈæpl]
-banana, 香蕉, [bəˈnænə]
-strawberry, 草莓, [ˈstrɔːbəri]
-orange, 橙子, [ˈɒrɪndʒ]
-watermelon, 西瓜, [ˈwɔːtəmelən]
-ice cream, 冰淇淋, [ˌaɪs ˈkriːm]
-cupcake, 纸杯蛋糕, [ˈkʌpkeɪk]`
+      `序号,英文,中文释义,音标
+1,apple,苹果,[ˈæpl]
+2,banana,香蕉,[bəˈnænə]
+3,strawberry,草莓,[ˈstrɔːbəri]
+4,orange,橙子,[ˈɒrɪndʒ]
+5,watermelon,西瓜,[ˈwɔːtəmelən]
+6,ice cream,冰淇淋,[ˌaɪs ˈkriːm]
+7,cupcake,纸杯蛋糕,[ˈkʌpkeɪk]`
     );
   };
+
+  const maxColumns = csvAnalysis
+    ? Math.max(...csvAnalysis.rows.map((r) => r.length), 1)
+    : 0;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/50 backdrop-blur-sm animate-pop-in">
       <div
-        className="w-full max-w-2xl max-h-[90vh] bg-white rounded-3xl sm:rounded-4xl shadow-2xl border-4 border-pink-100 flex flex-col overflow-hidden relative"
+        className="w-full max-w-2xl max-h-[92vh] bg-white rounded-3xl sm:rounded-4xl shadow-2xl border-4 border-pink-100 flex flex-col overflow-hidden relative"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -156,7 +203,7 @@ cupcake, 纸杯蛋糕, [ˈkʌpkeɪk]`
                 导入自定义单词库
               </h2>
               <p className="text-xs text-gray-500 font-bold">
-                支持短文智能分词、CSV/TXT 文件上传与手动建库
+                智能识别中英对照列、跳过表头与实时表格校验
               </p>
             </div>
           </div>
@@ -176,21 +223,6 @@ cupcake, 纸杯蛋糕, [ˈkʌpkeɪk]`
           <button
             onClick={() => {
               playPop();
-              setActiveTab('passage');
-            }}
-            className={`px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-black flex items-center gap-1.5 transition-all shrink-0 ${
-              activeTab === 'passage'
-                ? 'bg-pink-500 text-white shadow-md shadow-pink-200'
-                : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
-            }`}
-          >
-            <FileText className="w-4 h-4" />
-            <span>智能短文/绘本粘贴</span>
-          </button>
-
-          <button
-            onClick={() => {
-              playPop();
               setActiveTab('file');
             }}
             className={`px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-black flex items-center gap-1.5 transition-all shrink-0 ${
@@ -200,7 +232,7 @@ cupcake, 纸杯蛋糕, [ˈkʌpkeɪk]`
             }`}
           >
             <Upload className="w-4 h-4" />
-            <span>上传文件 (CSV/TXT/JSON)</span>
+            <span>上传文件 (CSV / TXT / Excel)</span>
           </button>
 
           <button
@@ -215,13 +247,28 @@ cupcake, 纸杯蛋糕, [ˈkʌpkeɪk]`
             }`}
           >
             <PlusCircle className="w-4 h-4" />
-            <span>中英对照单词表</span>
+            <span>粘贴中英单词表</span>
+          </button>
+
+          <button
+            onClick={() => {
+              playPop();
+              setActiveTab('passage');
+            }}
+            className={`px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-black flex items-center gap-1.5 transition-all shrink-0 ${
+              activeTab === 'passage'
+                ? 'bg-pink-500 text-white shadow-md shadow-pink-200'
+                : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+            }`}
+          >
+            <FileText className="w-4 h-4" />
+            <span>绘本/文章整段分词</span>
           </button>
         </div>
 
         {/* Scrollable Content Body */}
         <div className="p-5 overflow-y-auto space-y-4 flex-1">
-          {/* Metadata Section: Title, Emoji, Description */}
+          {/* Metadata Section */}
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
             <div className="sm:col-span-1">
               <label className="block text-xs font-black text-gray-700 mb-1">
@@ -241,7 +288,7 @@ cupcake, 纸杯蛋糕, [ˈkʌpkeɪk]`
               </label>
               <input
                 type="text"
-                placeholder="例如：神奇树屋第1章、三年级核心单词..."
+                placeholder="例如：自制核心词汇表、课外阅读生词..."
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 className="w-full text-sm font-bold p-2.5 rounded-2xl border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none"
@@ -255,14 +302,235 @@ cupcake, 纸杯蛋糕, [ˈkʌpkeɪk]`
             </label>
             <input
               type="text"
-              placeholder="简述这本词书适合的年龄或阶段..."
+              placeholder="简述这本词书适合的年级或难度..."
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               className="w-full text-xs font-medium p-2.5 rounded-2xl border border-gray-200 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none"
             />
           </div>
 
-          {/* TAB 1: Smart Passage Input */}
+          {/* TAB 1: FILE UPLOAD (CSV / TXT) */}
+          {activeTab === 'file' && (
+            <div className="space-y-4">
+              <div className="border-2 border-dashed border-pink-300 hover:border-pink-500 rounded-3xl p-5 text-center bg-pink-50/30 transition-colors">
+                <Upload className="w-8 h-8 text-pink-500 mx-auto mb-1.5" />
+                <p className="text-sm font-black text-gray-700">
+                  点击上传或拖放 CSV / TXT 文件
+                </p>
+                <p className="text-[11px] text-gray-400 mt-0.5">
+                  支持 Excel 导出的 CSV、TXT（支持多列，自动识别中英文与序号）
+                </p>
+                <input
+                  type="file"
+                  accept=".txt,.csv,.tsv,.json"
+                  onChange={handleFileUpload}
+                  className="mt-3 block mx-auto text-xs text-gray-500 file:mr-3 file:py-1.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-black file:bg-pink-500 file:text-white hover:file:bg-pink-600 cursor-pointer"
+                />
+              </div>
+
+              {fileName && (
+                <div className="p-3 rounded-2xl bg-gray-50 border border-gray-200 flex items-center justify-between text-xs font-bold">
+                  <span className="truncate max-w-[240px]">📄 {fileName}</span>
+                  <span className="text-emerald-600 flex items-center gap-1">
+                    <CheckCircle2 className="w-4 h-4" /> 已解析 {fileWords.length}{' '}
+                    个有效单词
+                  </span>
+                </div>
+              )}
+
+              {fileError && (
+                <div className="p-3 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold flex items-center gap-1.5">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
+                  <span>{fileError}</span>
+                </div>
+              )}
+
+              {/* Column Mapping Controls & Live Preview Table */}
+              {csvAnalysis && csvAnalysis.rows.length > 0 && (
+                <div className="p-4 rounded-3xl bg-amber-50/60 border border-amber-200 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-1.5 text-xs font-black text-amber-900">
+                      <SlidersHorizontal className="w-4 h-4 text-amber-600" />
+                      <span>列对应纠偏（如果识别不准，可在此调整）：</span>
+                    </div>
+                    <label className="flex items-center gap-1.5 text-xs font-bold text-gray-700 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={skipHeader}
+                        onChange={(e) => setSkipHeader(e.target.checked)}
+                        className="w-4 h-4 accent-pink-500"
+                      />
+                      <span>跳过首行表头</span>
+                    </label>
+                  </div>
+
+                  {/* Dropdowns row */}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+                    <div>
+                      <span className="block text-[11px] font-bold text-gray-500 mb-1">
+                        英文单词列 (Word)
+                      </span>
+                      <select
+                        value={wordCol}
+                        onChange={(e) => setWordCol(parseInt(e.target.value, 10))}
+                        className="w-full p-2 rounded-xl border border-gray-300 bg-white font-black text-gray-800 focus:border-pink-500"
+                      >
+                        {Array.from({ length: maxColumns }, (_, i) => (
+                          <option key={i} value={i}>
+                            第 {i + 1} 列 {csvAnalysis.rows[0]?.[i] ? `("${csvAnalysis.rows[0][i].slice(0, 10)}")` : ''}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <span className="block text-[11px] font-bold text-gray-500 mb-1">
+                        中文释义列 (Meaning)
+                      </span>
+                      <select
+                        value={transCol}
+                        onChange={(e) => setTransCol(parseInt(e.target.value, 10))}
+                        className="w-full p-2 rounded-xl border border-gray-300 bg-white font-black text-gray-800 focus:border-pink-500"
+                      >
+                        <option value={-1}>无中文释义</option>
+                        {Array.from({ length: maxColumns }, (_, i) => (
+                          <option key={i} value={i}>
+                            第 {i + 1} 列 {csvAnalysis.rows[0]?.[i] ? `("${csvAnalysis.rows[0][i].slice(0, 10)}")` : ''}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="col-span-2 sm:col-span-1">
+                      <span className="block text-[11px] font-bold text-gray-500 mb-1">
+                        音标列 (Phonetic 可选)
+                      </span>
+                      <select
+                        value={phoneticCol}
+                        onChange={(e) => setPhoneticCol(parseInt(e.target.value, 10))}
+                        className="w-full p-2 rounded-xl border border-gray-300 bg-white font-black text-gray-800 focus:border-pink-500"
+                      >
+                        <option value={-1}>无音标</option>
+                        {Array.from({ length: maxColumns }, (_, i) => (
+                          <option key={i} value={i}>
+                            第 {i + 1} 列 {csvAnalysis.rows[0]?.[i] ? `("${csvAnalysis.rows[0][i].slice(0, 10)}")` : ''}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Real-time Preview Table */}
+                  <div className="pt-2">
+                    <div className="flex items-center justify-between text-xs font-black text-gray-700 mb-1.5">
+                      <span className="flex items-center gap-1">
+                        <Eye className="w-3.5 h-3.5 text-pink-500" />
+                        速读内容实时预览 (前 5 行)：
+                      </span>
+                      <span className="text-[11px] text-pink-600 font-bold">
+                        将导入 {fileWords.length} 个单词
+                      </span>
+                    </div>
+
+                    <div className="border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-2xs">
+                      <table className="w-full text-left text-xs">
+                        <thead className="bg-pink-50/80 text-gray-700 font-black border-b border-gray-200">
+                          <tr>
+                            <th className="py-2 px-3 w-12">#</th>
+                            <th className="py-2 px-3">识别英文单词 (速读展示)</th>
+                            <th className="py-2 px-3">识别中文释义</th>
+                            <th className="py-2 px-3">音标</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-100">
+                          {fileWords.slice(0, 5).map((w, idx) => (
+                            <tr key={idx} className="hover:bg-pink-50/30">
+                              <td className="py-2 px-3 text-gray-400 font-bold">
+                                {idx + 1}
+                              </td>
+                              <td className="py-2 px-3 font-extrabold text-pink-600">
+                                {w.word}
+                              </td>
+                              <td className="py-2 px-3 font-medium text-gray-700">
+                                {w.translation || <span className="text-gray-300">无</span>}
+                              </td>
+                              <td className="py-2 px-3 font-mono text-[11px] text-gray-400">
+                                {w.phonetic || <span className="text-gray-300">-</span>}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* TAB 2: WORD LIST TEXTAREA */}
+          {activeTab === 'wordlist' && (
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-black text-gray-700">
+                  粘贴或输入单词表 (支持逗号、Tab、或多列)
+                </label>
+                <button
+                  onClick={loadWordListSample}
+                  className="text-xs font-bold text-pink-600 hover:text-pink-700 flex items-center gap-1"
+                >
+                  <Sparkles className="w-3.5 h-3.5" /> 填入带序号的示例
+                </button>
+              </div>
+              <textarea
+                rows={6}
+                placeholder="直接粘贴 Excel 复制的内容，或逗号分隔，例如：&#10;1, apple, 苹果, [ˈæpl]&#10;2, banana, 香蕉, [bəˈnænə]&#10;系统将自动识别并过滤序号！"
+                value={wordListText}
+                onChange={(e) => setWordListText(e.target.value)}
+                className="w-full text-xs p-3 rounded-2xl border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none font-mono"
+              />
+
+              {/* Real-time preview for manual text input */}
+              {manualListWords.length > 0 && (
+                <div className="p-3.5 rounded-2xl bg-pink-50/50 border border-pink-200 space-y-2">
+                  <div className="flex items-center justify-between text-xs font-black text-gray-700">
+                    <span className="flex items-center gap-1">
+                      <Eye className="w-3.5 h-3.5 text-pink-500" />
+                      自动识别解析预览 (前 5 行)：
+                    </span>
+                    <span className="text-pink-600 font-bold">
+                      已识别 {manualListWords.length} 词
+                    </span>
+                  </div>
+
+                  <div className="border border-pink-200/60 rounded-xl overflow-hidden bg-white">
+                    <table className="w-full text-left text-xs">
+                      <thead className="bg-pink-100/60 text-gray-700 font-bold border-b border-pink-200">
+                        <tr>
+                          <th className="py-1.5 px-3 w-10">#</th>
+                          <th className="py-1.5 px-3">单词</th>
+                          <th className="py-1.5 px-3">释义</th>
+                          <th className="py-1.5 px-3">音标</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-pink-50">
+                        {manualListWords.slice(0, 5).map((w, idx) => (
+                          <tr key={idx}>
+                            <td className="py-1.5 px-3 text-gray-400 font-bold">{idx + 1}</td>
+                            <td className="py-1.5 px-3 font-black text-pink-600">{w.word}</td>
+                            <td className="py-1.5 px-3 text-gray-700">{w.translation || '-'}</td>
+                            <td className="py-1.5 px-3 text-gray-400 font-mono text-[10px]">{w.phonetic || '-'}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* TAB 3: SMART PASSAGE */}
           {activeTab === 'passage' && (
             <div className="space-y-2">
               <div className="flex items-center justify-between">
@@ -295,75 +563,6 @@ cupcake, 纸杯蛋糕, [ˈkʌpkeɪk]`
               </div>
             </div>
           )}
-
-          {/* TAB 2: File Upload */}
-          {activeTab === 'file' && (
-            <div className="space-y-3">
-              <div className="border-2 border-dashed border-pink-300 hover:border-pink-500 rounded-3xl p-6 text-center bg-pink-50/30 transition-colors">
-                <Upload className="w-8 h-8 text-pink-500 mx-auto mb-2" />
-                <p className="text-sm font-black text-gray-700">
-                  点击选择或拖放文件到此处
-                </p>
-                <p className="text-xs text-gray-400 mt-1">
-                  支持 .txt, .csv, .json 文件 (每行一个词或逗号中英对照)
-                </p>
-                <input
-                  type="file"
-                  accept=".txt,.csv,.json"
-                  onChange={handleFileUpload}
-                  className="mt-3 block mx-auto text-xs text-gray-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-black file:bg-pink-500 file:text-white hover:file:bg-pink-600 cursor-pointer"
-                />
-              </div>
-
-              {fileName && (
-                <div className="p-3 rounded-2xl bg-gray-50 border border-gray-200 flex items-center justify-between text-xs font-bold">
-                  <span className="truncate max-w-[200px]">📄 {fileName}</span>
-                  <span className="text-emerald-600 flex items-center gap-1">
-                    <CheckCircle2 className="w-4 h-4" /> 已解析 {fileWords.length}{' '}
-                    个词
-                  </span>
-                </div>
-              )}
-
-              {fileError && (
-                <div className="p-3 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold flex items-center gap-1.5">
-                  <AlertCircle className="w-4 h-4 shrink-0" />
-                  <span>{fileError}</span>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* TAB 3: Word List Input */}
-          {activeTab === 'wordlist' && (
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <label className="text-xs font-black text-gray-700">
-                  输入单词与释义 (支持格式：单词, 中文释义, 音标)
-                </label>
-                <button
-                  onClick={loadWordListSample}
-                  className="text-xs font-bold text-pink-600 hover:text-pink-700 flex items-center gap-1"
-                >
-                  <Sparkles className="w-3.5 h-3.5" /> 填入水果示例
-                </button>
-              </div>
-              <textarea
-                rows={7}
-                placeholder="每行一个单词，逗号分隔中文释义，例如：&#10;apple, 苹果&#10;banana, 香蕉&#10;watermelon, 西瓜"
-                value={wordListText}
-                onChange={(e) => setWordListText(e.target.value)}
-                className="w-full text-sm p-3.5 rounded-2xl border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none font-mono"
-              />
-              <div className="text-xs font-bold text-gray-500">
-                解析单词数：
-                <span className="text-pink-600 font-extrabold ml-1">
-                  {parseImportFileContent(wordListText).length}
-                </span>{' '}
-                词
-              </div>
-            </div>
-          )}
         </div>
 
         {/* Footer Actions */}
@@ -382,7 +581,7 @@ cupcake, 纸杯蛋糕, [ˈkʌpkeɪk]`
             className="px-6 py-2.5 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-400 text-white font-black text-sm shadow-md shadow-pink-200 hover:opacity-95 active:scale-95 transition-all flex items-center gap-1.5"
           >
             <BookOpen className="w-4 h-4" />
-            保存并加入词书库
+            确认导入此词书
           </button>
         </div>
       </div>
