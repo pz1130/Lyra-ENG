@@ -97,8 +97,14 @@ export const ThemePickerModal: React.FC<ThemePickerModalProps> = ({
                     style={{ backgroundColor: t.colors.orpColor }}
                     title="聚焦高亮色"
                   />
-                  <div className="w-5 h-5 rounded-full shadow-inner bg-gradient-to-r from-pink-400 to-rose-400" />
-                  <div className="w-5 h-5 rounded-full shadow-inner bg-gradient-to-r from-emerald-400 to-teal-400" />
+                  <div
+                    className={`w-5 h-5 rounded-full shadow-inner bg-gradient-to-r ${t.colors.progressBar}`}
+                    title="主题进度色"
+                  />
+                  <div
+                    className={`w-5 h-5 rounded-full shadow-inner bg-gradient-to-br ${t.colors.bgGradient}`}
+                    title="背景渐变色"
+                  />
                   <span className="text-[10px] text-gray-400 ml-auto flex items-center gap-0.5">
                     <Sparkles className="w-3 h-3 text-amber-400" /> 沉浸主题
                   </span>
