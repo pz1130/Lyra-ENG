@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  lyra-reader:
+    image: lyra-reader:v2
+    container_name: lyra-reader-v2
+    restart: unless-stopped
+    ports:
+      - "5566:80"  # 使用 5566 端口，避免 8080 端口被飞牛NAS其他应用占用
+    environment:
+      - TZ=Asia/Shanghai
+

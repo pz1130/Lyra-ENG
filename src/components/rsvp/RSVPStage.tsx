@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { Volume2, Sparkles } from 'lucide-react';
 import { useLibrary } from '../../context/LibraryContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -71,6 +71,55 @@ export const RSVPStage: React.FC<RSVPStageProps> = ({
   };
 
   const mascotState = isPlaying ? 'reading' : 'paused';
+
+  const wordStageRef = useRef<HTMLDivElement>(null);
+  const focalRef = useRef<HTMLSpanElement>(null);
+  const [wordScale, setWordScale] = useState(1);
+
+  const fitWordToStage = useCallback(() => {
+    const stage = wordStageRef.current;
+    const focalEl = focalRef.current;
+    if (!stage || !focalEl || !currentResult) return;
+
+    const stageStyle = window.getComputedStyle(stage);
+    const available =
+      stage.clientWidth -
+      (parseFloat(stageStyle.paddingLeft) || 0) -
+      (parseFloat(stageStyle.paddingRight) || 0);
+    if (available <= 0) return;
+
+    const fontStyle = window.getComputedStyle(focalEl);
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    ctx.font = `${fontStyle.fontWeight} ${fontStyle.fontSize} ${fontStyle.fontFamily}`;
+
+    const prefixW = ctx.measureText(currentResult.prefix || '').width;
+    const focalW = Math.max(ctx.measureText(currentResult.focal || '').width, 1);
+    const suffixW = ctx.measureText(currentResult.suffix || '').width;
+    const half = Math.max(1, available / 2 - 6);
+    const leftExtent = prefixW + focalW / 2;
+    const rightExtent = suffixW + focalW / 2;
+    const next = Math.max(
+      0.38,
+      Math.min(1, half / Math.max(leftExtent, 1), half / Math.max(rightExtent, 1))
+    );
+
+    setWordScale((prev) => (Math.abs(prev - next) < 0.012 ? prev : next));
+  }, [currentResult, readerSettings.fontSize, readerSettings.fontFamily]);
+
+  useLayoutEffect(() => {
+    fitWordToStage();
+    const stage = wordStageRef.current;
+    if (!stage || typeof ResizeObserver === 'undefined') return;
+
+    const observer = new ResizeObserver(() => fitWordToStage());
+    observer.observe(stage);
+
+    void document.fonts?.ready?.then(() => fitWordToStage());
+
+    return () => observer.disconnect();
+  }, [fitWordToStage]);
 
   return (
     <div
@@ -150,34 +199,37 @@ export const RSVPStage: React.FC<RSVPStageProps> = ({
             )}
           </div>
         ) : currentResult ? (
-          <div
-            className={`w-full flex items-center justify-center font-extrabold tracking-normal ${getFontSizeClass()} ${getFontFamilyClass()} transition-transform duration-75`}
-          >
-            {/* Left Prefix (Right-aligned) */}
+          <div ref={wordStageRef} className="w-full overflow-visible px-1">
             <div
-              className={`w-1/2 text-right pr-[0.05em] overflow-hidden whitespace-nowrap ${theme.colors.textPrimary}`}
+              className={`w-full grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center font-extrabold tracking-normal ${getFontSizeClass()} ${getFontFamilyClass()}`}
+              style={{
+                transform: `scale(${wordScale})`,
+                transformOrigin: 'center center',
+              }}
             >
-              {currentResult.prefix}
-            </div>
+              <span
+                className={`min-w-0 justify-self-end whitespace-nowrap pr-[0.05em] ${theme.colors.textPrimary}`}
+              >
+                {currentResult.prefix}
+              </span>
 
-            {/* Center Focal Character (Fixed position, Eye Anchor) */}
-            <div
-              className="shrink-0 font-black relative px-[0.02em]"
-              style={{ color: theme.colors.orpColor }}
-            >
-              {currentResult.focal}
-              {/* Optional glowing dot under focus letter */}
-              <div
-                className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full opacity-60"
-                style={{ backgroundColor: theme.colors.orpColor }}
-              />
-            </div>
+              <span
+                ref={focalRef}
+                className="relative shrink-0 font-black px-[0.02em]"
+                style={{ color: theme.colors.orpColor }}
+              >
+                {currentResult.focal}
+                <span
+                  className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full opacity-60"
+                  style={{ backgroundColor: theme.colors.orpColor }}
+                />
+              </span>
 
-            {/* Right Suffix (Left-aligned) */}
-            <div
-              className={`w-1/2 text-left pl-[0.05em] overflow-hidden whitespace-nowrap ${theme.colors.textPrimary}`}
-            >
-              {currentResult.suffix}
+              <span
+                className={`min-w-0 justify-self-start whitespace-nowrap pl-[0.05em] ${theme.colors.textPrimary}`}
+              >
+                {currentResult.suffix}
+              </span>
             </div>
           </div>
         ) : (

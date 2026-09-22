@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useSoundEffects } from '../../hooks/useSoundEffects';
+import { FluttershySVG } from '../mascots/FluttershySVG';
+import { EggySVG } from '../mascots/EggySVG';
 
 interface MascotProps {
   type: 'bunny' | 'bear' | 'cat' | 'dolphin' | 'pony' | 'eggy';
@@ -291,48 +293,12 @@ export const Mascot: React.FC<MascotProps> = ({
         );
 
       case 'pony':
-        return (
-          <div className="relative w-full h-full flex items-center justify-center">
-            <img
-              src="/assets/mascots/fluttershy.png"
-              alt="小马宝莉 · 小蝶/柔柔 (Fluttershy)"
-              className="w-full h-full object-contain drop-shadow-md select-none pointer-events-none transform transition-transform hover:scale-105"
-            />
-            {state === 'reading' && (
-              <div className="absolute top-1 right-2 text-sm pointer-events-none animate-pulse">
-                📖
-              </div>
-            )}
-            {state === 'celebrating' && (
-              <div className="absolute inset-0 pointer-events-none">
-                <span className="absolute -top-2 -right-1 text-base animate-ping">✨</span>
-                <span className="absolute -bottom-1 -left-1 text-sm animate-bounce">💖</span>
-              </div>
-            )}
-          </div>
-        );
+        return <FluttershySVG state={state} />;
 
       case 'eggy':
-        return (
-          <div className="relative w-full h-full flex items-center justify-center">
-            <img
-              src="/assets/mascots/eggy.png"
-              alt="蛋仔派对 · 蛋小黄 (Eggy)"
-              className="w-full h-full object-contain drop-shadow-md select-none pointer-events-none transform transition-transform hover:scale-105"
-            />
-            {state === 'reading' && (
-              <div className="absolute top-1 right-2 text-sm pointer-events-none animate-pulse">
-                ⚡
-              </div>
-            )}
-            {state === 'celebrating' && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-xl pointer-events-none animate-bounce-gentle">
-                👑
-              </div>
-            )}
-          </div>
-        );
+        return <EggySVG state={state} />;
     }
+
   };
 
   return (

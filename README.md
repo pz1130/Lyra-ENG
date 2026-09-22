@@ -1,5 +1,25 @@
+---
+title: Lyra-Reader
+emoji: 🐰
+colorFrom: pink
+colorTo: yellow
+sdk: static
+app_file: index.html
+pinned: false
+fullWidth: true
+short_description: Kids RSVP speed reader with themes and word libraries
+tags:
+  - rsvp
+  - reading
+  - education
+  - kids
+  - react
+---
+
 # 萌萌速读 (Lyra Reader) 🐰✨
 ### 专为儿童与青少儿设计的本地版 RSVP 视觉速读与词库进阶工具
+
+**在线演示**：[Hugging Face Space · Lyra-Reader](https://huggingface.co/spaces/pz1130/Lyra-Reader)
 
 基于 [AccelaReader](https://accelareader.com/) 核心 RSVP（Rapid Serial Visual Presentation）视觉速读原理研发，融入儿童认知心理学、动态伴读吉祥物、可爱萌系换肤与全本地离线词库导入功能。
 
