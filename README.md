@@ -101,3 +101,11 @@ npm run preview
 - **动效与交互**：Lucide Icons + canvas-confetti (通关五彩礼花)
 - **纯本地音效**：Web Audio API 自研合成音效（零外部音频加载延迟）
 - **发音朗读**：原生 Web Speech API
+
+---
+
+## 📄 开源协议
+
+本项目代码以 [MIT License](LICENSE) 开源。
+
+柔柔（Fluttershy / My Little Pony）与蛋仔（蛋仔派对）的形象属于各自权利人，不在上述 MIT 许可范围内。
