@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { useSoundEffects } from '../../hooks/useSoundEffects';
-import { FluttershySVG } from '../mascots/FluttershySVG';
-import { EggySVG } from '../mascots/EggySVG';
 
 interface MascotProps {
-  type: 'bunny' | 'bear' | 'cat' | 'dolphin' | 'pony' | 'eggy';
+  type: 'bunny' | 'bear' | 'cat' | 'dolphin' | 'firefly' | 'tiger';
   name: string;
   state: 'idle' | 'reading' | 'celebrating' | 'paused';
   className?: string;
@@ -292,14 +290,141 @@ export const Mascot: React.FC<MascotProps> = ({
           </svg>
         );
 
-      case 'pony':
-        return <FluttershySVG state={state} />;
+      case 'firefly':
+        return (
+          <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md">
+            <ellipse
+              cx="26"
+              cy="58"
+              rx="16"
+              ry="8"
+              fill="#FEF3C7"
+              stroke="#FCD34D"
+              strokeWidth="1.5"
+              transform="rotate(-32 26 58)"
+            />
+            <ellipse
+              cx="74"
+              cy="58"
+              rx="16"
+              ry="8"
+              fill="#FEF3C7"
+              stroke="#FCD34D"
+              strokeWidth="1.5"
+              transform="rotate(32 74 58)"
+            />
+            <path d="M40 38 Q32 24 28 18" stroke="#92400E" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+            <path d="M60 38 Q68 24 72 18" stroke="#92400E" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+            <circle cx="27" cy="17" r="2.6" fill="#FACC15" stroke="#CA8A04" strokeWidth="0.8" />
+            <circle cx="73" cy="17" r="2.6" fill="#FACC15" stroke="#CA8A04" strokeWidth="0.8" />
 
-      case 'eggy':
-        return <EggySVG state={state} />;
+            <circle cx="50" cy="56" r="24" fill="#F59E0B" stroke="#B45309" strokeWidth="2" />
+            <ellipse cx="50" cy="70" rx="11" ry="8" fill="#FEF9C3" stroke="#EAB308" strokeWidth="1.4" />
+            <circle cx="50" cy="70" r={state === 'celebrating' ? 4.5 : 3.4} fill="#FDE047" />
+
+            <ellipse cx="33" cy="62" rx="3.5" ry="2.2" fill="#FDBA74" />
+            <ellipse cx="67" cy="62" rx="3.5" ry="2.2" fill="#FDBA74" />
+
+            {state === 'celebrating' ? (
+              <>
+                <path d="M36 52 Q41 46 46 52" stroke="#78350F" strokeWidth="2.4" strokeLinecap="round" fill="none" />
+                <path d="M54 52 Q59 46 64 52" stroke="#78350F" strokeWidth="2.4" strokeLinecap="round" fill="none" />
+              </>
+            ) : (
+              <>
+                <ellipse cx="40" cy="52" rx="3.2" ry="4" fill="#78350F" />
+                <circle cx="39" cy="50.5" r="1.2" fill="#FFFFFF" />
+                <ellipse cx="60" cy="52" rx="3.2" ry="4" fill="#78350F" />
+                <circle cx="59" cy="50.5" r="1.2" fill="#FFFFFF" />
+              </>
+            )}
+
+            {state === 'reading' && (
+              <g>
+                <circle cx="40" cy="52" r="7.2" stroke="#65A30D" strokeWidth="2" fill="none" />
+                <circle cx="60" cy="52" r="7.2" stroke="#65A30D" strokeWidth="2" fill="none" />
+                <path d="M47.2 52 L52.8 52" stroke="#65A30D" strokeWidth="2" />
+              </g>
+            )}
+
+            <path d="M46 60 Q50 63 54 60" stroke="#78350F" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+            <ellipse cx="40" cy="82" rx="5" ry="3" fill="#D97706" stroke="#B45309" strokeWidth="1.2" />
+            <ellipse cx="60" cy="82" rx="5" ry="3" fill="#D97706" stroke="#B45309" strokeWidth="1.2" />
+          </svg>
+        );
+
+      case 'tiger':
+        return (
+          <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md">
+            <path d="M74 68 Q92 64 94 50" stroke="#FB923C" strokeWidth="7" fill="none" strokeLinecap="round" />
+            <path d="M90 56 Q93 52 94 50" stroke="#7C2D12" strokeWidth="7" fill="none" strokeLinecap="round" />
+
+            <circle cx="30" cy="34" r="10" fill="#FB923C" stroke="#C2410C" strokeWidth="2" />
+            <circle cx="30" cy="35" r="5" fill="#FFEDD5" />
+            <circle cx="70" cy="34" r="10" fill="#FB923C" stroke="#C2410C" strokeWidth="2" />
+            <circle cx="70" cy="35" r="5" fill="#FFEDD5" />
+
+            <circle cx="50" cy="56" r="26" fill="#FB923C" stroke="#C2410C" strokeWidth="2" />
+            <path d="M40 38 Q43 44 38 48" stroke="#9A3412" strokeWidth="2.1" fill="none" strokeLinecap="round" />
+            <path d="M50 33 Q50 41 50 46" stroke="#9A3412" strokeWidth="2.3" fill="none" strokeLinecap="round" />
+            <path d="M60 38 Q57 44 62 48" stroke="#9A3412" strokeWidth="2.1" fill="none" strokeLinecap="round" />
+            <path d="M27 56 Q34 54 36 59" stroke="#9A3412" strokeWidth="1.7" fill="none" strokeLinecap="round" />
+            <path d="M73 56 Q66 54 64 59" stroke="#9A3412" strokeWidth="1.7" fill="none" strokeLinecap="round" />
+
+            <ellipse cx="50" cy="64" rx="12" ry="9" fill="#FFF7ED" />
+            <ellipse cx="50" cy="60" rx="3.2" ry="2.4" fill="#9A3412" />
+            <path d="M46 65 Q50 68 54 65" stroke="#9A3412" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+
+            <ellipse cx="32" cy="62" rx="3.2" ry="2" fill="#FDBA74" />
+            <ellipse cx="68" cy="62" rx="3.2" ry="2" fill="#FDBA74" />
+
+            {state === 'celebrating' ? (
+              <>
+                <path d="M36 50 Q41 44 46 50" stroke="#7C2D12" strokeWidth="2.4" strokeLinecap="round" fill="none" />
+                <path d="M54 50 Q59 44 64 50" stroke="#7C2D12" strokeWidth="2.4" strokeLinecap="round" fill="none" />
+              </>
+            ) : (
+              <>
+                <ellipse cx="41" cy="50" rx="3.2" ry="3.8" fill="#7C2D12" />
+                <circle cx="40" cy="48.6" r="1.2" fill="#FFFFFF" />
+                <ellipse cx="59" cy="50" rx="3.2" ry="3.8" fill="#7C2D12" />
+                <circle cx="58" cy="48.6" r="1.2" fill="#FFFFFF" />
+              </>
+            )}
+
+            {state === 'reading' && (
+              <g>
+                <circle cx="41" cy="50" r="7" stroke="#EA580C" strokeWidth="2" fill="none" />
+                <circle cx="59" cy="50" r="7" stroke="#EA580C" strokeWidth="2" fill="none" />
+                <path d="M48 50 L52 50" stroke="#EA580C" strokeWidth="2" />
+              </g>
+            )}
+          </svg>
+        );
     }
 
   };
+
+  const statusLabel = (() => {
+    if (state === 'reading') {
+      if (type === 'tiger') return '🐯 橙橙陪读中';
+      if (type === 'firefly') return '✨ 萤萤陪读中';
+      return '📖 速读中';
+    }
+    if (state === 'paused') {
+      if (type === 'tiger') return '⏸️ 趴会儿再来';
+      if (type === 'firefly') return '⏸️ 灯火歇一歇';
+      return '⏸️ 休息啦';
+    }
+    if (state === 'celebrating') {
+      if (type === 'tiger') return '🎉 冲过终点啦';
+      if (type === 'firefly') return '💛 亮晶晶';
+      return '🎉 太棒啦';
+    }
+    if (type === 'tiger') return '🧡 一起读吧';
+    if (type === 'firefly') return '🌟 暖暖陪着你';
+    return '✨ 伴读中';
+  })();
 
   return (
     <div
@@ -313,42 +438,7 @@ export const Mascot: React.FC<MascotProps> = ({
       {/* Speech bubble or status tag */}
       {showTag && (
         <div className="absolute -bottom-2 -right-1 bg-white/95 px-2 py-0.5 rounded-full text-[10px] font-bold shadow-sm border border-pink-200/50 flex items-center gap-1 pointer-events-none whitespace-nowrap">
-          {state === 'reading' && (
-            <span className="animate-pulse">
-              {type === 'eggy'
-                ? '⚡ 搞快点速读中'
-                : type === 'pony'
-                ? '✨ 柔柔伴读中'
-                : '📖 速读中'}
-            </span>
-          )}
-          {state === 'paused' && (
-            <span>
-              {type === 'eggy'
-                ? '⏸️ 歇会儿再冲'
-                : type === 'pony'
-                ? '⏸️ 轻轻休息'
-                : '⏸️ 休息啦'}
-            </span>
-          )}
-          {state === 'celebrating' && (
-            <span>
-              {type === 'eggy'
-                ? '👑 顺利夺冠撞走不开心！'
-                : type === 'pony'
-                ? '💖 善良之心闪耀！'
-                : '🎉 太棒啦'}
-            </span>
-          )}
-          {state === 'idle' && (
-            <span>
-              {type === 'eggy'
-                ? '🍳 蛋仔冲冲冲！'
-                : type === 'pony'
-                ? '🦋 善良就是魔法'
-                : '✨ 伴读中'}
-            </span>
-          )}
+          <span className={state === 'reading' ? 'animate-pulse' : undefined}>{statusLabel}</span>
         </div>
       )}
     </div>

@@ -1,4 +1,4 @@
-export type ThemeId = 'candy' | 'forest' | 'space' | 'ocean' | 'pony' | 'eggy';
+export type ThemeId = 'candy' | 'forest' | 'space' | 'ocean' | 'glow' | 'sunny';
 
 export interface ThemeConfig {
   id: ThemeId;
@@ -6,7 +6,7 @@ export interface ThemeConfig {
   subtitle: string;
   emoji: string;
   mascotName: string;
-  mascotType: 'bunny' | 'bear' | 'cat' | 'dolphin' | 'pony' | 'eggy';
+  mascotType: 'bunny' | 'bear' | 'cat' | 'dolphin' | 'firefly' | 'tiger';
   colors: {
     bgGradient: string;
     cardBg: string;
@@ -46,35 +46,35 @@ export const THEMES: Record<ThemeId, ThemeConfig> = {
       badgeBg: 'bg-rose-100 text-rose-700 border-rose-200',
     },
   },
-  pony: {
-    id: 'pony',
-    name: '小马宝莉',
-    subtitle: '友谊就是魔法 · 柔柔/小蝶 (Fluttershy)',
-    emoji: '🦋',
-    mascotName: '小蝶 (Fluttershy)',
-    mascotType: 'pony',
+  glow: {
+    id: 'glow',
+    name: '萤火花园',
+    subtitle: '暖暖灯火 · 轻轻陪读',
+    emoji: '🌟',
+    mascotName: '萤萤 (Lumi)',
+    mascotType: 'firefly',
     colors: {
-      bgGradient: 'from-amber-100/70 via-rose-50 to-pink-100',
+      bgGradient: 'from-amber-100 via-yellow-50 to-lime-100',
       cardBg: 'bg-white/95 backdrop-blur-md',
-      cardBorder: 'border-pink-300',
+      cardBorder: 'border-amber-200',
       textPrimary: 'text-amber-950',
-      textSecondary: 'text-pink-600',
-      primaryBtn: 'bg-gradient-to-r from-pink-400 via-rose-400 to-amber-300 text-white shadow-pink-200',
-      primaryBtnHover: 'hover:from-pink-500 hover:to-rose-500',
-      accentBg: 'bg-pink-100 text-pink-700',
-      orpColor: '#EC4899', // Pink 500 - Fluttershy's butterfly pink
-      navBg: 'bg-white/85 border-pink-200',
-      progressBar: 'from-amber-300 via-pink-400 to-rose-400',
-      badgeBg: 'bg-pink-100 text-pink-700 border-pink-200',
+      textSecondary: 'text-amber-700',
+      primaryBtn: 'bg-gradient-to-r from-amber-400 to-lime-500 text-white shadow-amber-200',
+      primaryBtnHover: 'hover:from-amber-500 hover:to-lime-600',
+      accentBg: 'bg-amber-100 text-amber-800',
+      orpColor: '#D97706',
+      navBg: 'bg-white/85 border-amber-200',
+      progressBar: 'from-amber-300 via-yellow-400 to-lime-400',
+      badgeBg: 'bg-amber-100 text-amber-800 border-amber-200',
     },
   },
-  eggy: {
-    id: 'eggy',
-    name: '蛋仔派对',
-    subtitle: '撞走不开心 · 蛋小黄经典白毛衣 (Eggy Party)',
-    emoji: '🍳',
-    mascotName: '蛋小黄 (Eggie)',
-    mascotType: 'eggy',
+  sunny: {
+    id: 'sunny',
+    name: '橙虎运动会',
+    subtitle: '蹦一蹦 · 一起冲过终点',
+    emoji: '🐯',
+    mascotName: '橙橙虎 (Tango)',
+    mascotType: 'tiger',
     colors: {
       bgGradient: 'from-yellow-200 via-amber-100 to-orange-100',
       cardBg: 'bg-white/95 backdrop-blur-md',
